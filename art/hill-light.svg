@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" id="hilllight-art" viewBox="0 0 1200 640" role="img"
+     aria-labelledby="hilllight-art-title hilllight-art-desc" preserveAspectRatio="xMidYMid slice">
+  <title id="hilllight-art-title">溪山 · 同一片山水</title>
+  <desc id="hilllight-art-desc">一幅克制的溪山构图：远山、近坡、松树与一段溪流。四时主题共用同一构图，只改变光、色温与雾。</desc>
+  <style>
+    #hilllight-art .hl-sky-a { stop-color: var(--sky-top, #e7e8e1); }
+    #hilllight-art .hl-sky-b { stop-color: var(--sky-bottom, #f4f1e8); }
+    #hilllight-art .hl-halo-a { stop-color: var(--light-halo, #f2ecda); stop-opacity: .55; }
+    #hilllight-art .hl-halo-b { stop-color: var(--light-halo, #f2ecda); stop-opacity: 0; }
+    #hilllight-art .hl-light-grad-a { stop-color: var(--light, #ede6ce); stop-opacity: .98; }
+    #hilllight-art .hl-light-grad-b { stop-color: var(--light, #ede6ce); stop-opacity: .55; }
+    #hilllight-art .hl-mist-a { stop-color: var(--mist, #f0eee6); stop-opacity: 0; }
+    #hilllight-art .hl-mist-b { stop-color: var(--mist, #f0eee6); stop-opacity: 1; }
+    #hilllight-art .hl-water-a { stop-color: var(--water, #b8c9c1); }
+    #hilllight-art .hl-water-b { stop-color: var(--water-deep, #93a9a0); }
+    #hilllight-art .hl-water-shine { stop-color: var(--water-line, #e6ece5); }
+
+    #hilllight-art .hl-far { fill: var(--mountain-far, #c3ccc5); }
+    #hilllight-art .hl-mid { fill: var(--mountain-mid, #9eaea6); }
+    #hilllight-art .hl-near { fill: var(--mountain-near, #778c84); }
+    #hilllight-art .hl-rock { fill: var(--rock, #6b8078); }
+    #hilllight-art .hl-ridge {
+      fill: none; stroke: var(--ridge-highlight, #f2f0e6);
+      stroke-width: 1.6; stroke-linecap: round;
+      opacity: var(--ridge-opacity, .3);
+    }
+    #hilllight-art .hl-tree { fill: var(--tree, #526a61); }
+    #hilllight-art .hl-tree-shade { fill: var(--tree-shade, #435a52); }
+    #hilllight-art .hl-tree-rim {
+      fill: none; stroke: var(--tree-rim, #dde5dc);
+      stroke-width: 1.2; stroke-linecap: round;
+      opacity: var(--tree-rim-opacity, .3);
+    }
+    #hilllight-art .hl-trunk { fill: none; stroke: var(--tree-shade, #435a52); stroke-width: 2.2; stroke-linecap: round; }
+    #hilllight-art .hl-water-line { fill: none; stroke: var(--water-line, #e6ece5); stroke-width: 1.4; stroke-linecap: round; opacity: var(--water-light-opacity, .5); }
+    #hilllight-art .hl-boat { fill: var(--boat, #3d4f4a); }
+    #hilllight-art .hl-boat-line { fill: none; stroke: var(--boat, #3d4f4a); stroke-width: 1.6; stroke-linecap: round; }
+    #hilllight-art .hl-reed { fill: none; stroke: var(--reed, #6f837b); stroke-width: 1.5; stroke-linecap: round; }
+    #hilllight-art .hl-mist { opacity: var(--haze-opacity, .5); }
+    #hilllight-art .hl-halo { opacity: var(--light-opacity, .8); }
+    #hilllight-art .hl-disc { opacity: var(--light-opacity, .95); }
+    #hilllight-art .hl-reflection { opacity: var(--water-light-opacity, .5); }
+    #hilllight-art .hl-saturation { filter: saturate(var(--art-saturation, 1)) contrast(var(--art-contrast, 1)); }
+  </style>
+
+  <defs>
+    <linearGradient id="hl-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" class="hl-sky-a"/>
+      <stop offset="1" class="hl-sky-b"/>
+    </linearGradient>
+    <radialGradient id="hl-halo-grad" cx="50%" cy="50%" r="50%">
+      <stop offset="0" class="hl-halo-a"/>
+      <stop offset="1" class="hl-halo-b"/>
+    </radialGradient>
+    <radialGradient id="hl-disc-grad" cx="42%" cy="38%" r="62%">
+      <stop offset="0" class="hl-light-grad-a"/>
+      <stop offset="1" class="hl-light-grad-b"/>
+    </radialGradient>
+    <linearGradient id="hl-mist-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" class="hl-mist-a"/>
+      <stop offset=".5" class="hl-mist-b"/>
+      <stop offset="1" class="hl-mist-a"/>
+    </linearGradient>
+    <linearGradient id="hl-water-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" class="hl-water-a"/>
+      <stop offset="0.55" class="hl-water-b"/>
+      <stop offset="1" class="hl-water-a"/>
+    </linearGradient>
+
+    <!-- One pine, reused at different scales; the left half is always in shadow,
+         so changing --tree-shade is enough to move the light. -->
+    <g id="hl-pine">
+      <path class="hl-trunk" d="M0,4 C-2,-22 2,-44 0,-62 C-1,-80 1,-98 2,-118"/>
+      <path class="hl-trunk" d="M1,-62 C-12,-70 -24,-78 -34,-88"/>
+      <path class="hl-trunk" d="M1,-88 C-8,-94 -16,-98 -22,-106"/>
+      <g>
+        <path class="hl-tree" d="M-54,-38 C-42,-56 -22,-64 0,-60 C22,-64 42,-56 54,-38 C38,-34 20,-38 0,-32 C-20,-38 -38,-34 -54,-38 Z"/>
+        <path class="hl-tree-shade" d="M-54,-38 C-42,-56 -22,-64 0,-60 L0,-32 C-20,-38 -38,-34 -54,-38 Z"/>
+        <path class="hl-tree-rim" d="M0,-60 C22,-64 42,-56 54,-38"/>
+      </g>
+      <g>
+        <path class="hl-tree" d="M-44,-68 C-34,-84 -18,-91 0,-88 C18,-91 34,-84 44,-68 C30,-64 16,-68 0,-62 C-16,-68 -30,-64 -44,-68 Z"/>
+        <path class="hl-tree-shade" d="M-44,-68 C-34,-84 -18,-91 0,-88 L0,-62 C-16,-68 -30,-64 -44,-68 Z"/>
+        <path class="hl-tree-rim" d="M0,-88 C18,-91 34,-84 44,-68"/>
+      </g>
+      <g>
+        <path class="hl-tree" d="M-33,-94 C-25,-108 -13,-114 0,-112 C13,-114 25,-108 33,-94 C22,-91 11,-94 0,-89 C-11,-94 -22,-91 -33,-94 Z"/>
+        <path class="hl-tree-shade" d="M-33,-94 C-25,-108 -13,-114 0,-112 L0,-89 C-11,-94 -22,-91 -33,-94 Z"/>
+        <path class="hl-tree-rim" d="M0,-112 C13,-114 25,-108 33,-94"/>
+      </g>
+      <g>
+        <path class="hl-tree" d="M-21,-116 C-15,-128 -7,-132 0,-131 C7,-132 15,-128 21,-116 C14,-114 7,-116 0,-112 C-7,-116 -14,-114 -21,-116 Z"/>
+        <path class="hl-tree-rim" d="M0,-131 C7,-132 15,-128 21,-116"/>
+      </g>
+    </g>
+  </defs>
+
+  <g class="hl-saturation">
+    <rect width="1200" height="640" fill="url(#hl-sky)"/>
+
+    <!-- The light is in the same place in all four themes. -->
+    <circle class="hl-halo" cx="892" cy="152" r="168" fill="url(#hl-halo-grad)"/>
+    <circle class="hl-disc" cx="892" cy="152" r="43" fill="url(#hl-disc-grad)"/>
+
+    <!-- Far ridge -->
+    <path class="hl-far" d="M0,352 C90,318 150,300 230,318 C310,336 350,286 430,292 C510,298 540,330 620,326 C700,322 740,300 820,310 C900,320 950,344 1030,330 C1110,316 1150,340 1200,332 L1200,640 L0,640 Z"/>
+    <path class="hl-ridge" d="M0,352 C90,318 150,300 230,318 C310,336 350,286 430,292 C510,298 540,330 620,326 C700,322 740,300 820,310 C900,320 950,344 1030,330 C1110,316 1150,340 1200,332"/>
+
+    <!-- Low mist behind the middle hills -->
+    <rect class="hl-mist" x="0" y="322" width="1200" height="96" fill="url(#hl-mist-grad)"/>
+
+    <!-- Middle hills -->
+    <path class="hl-mid" d="M0,470 C60,442 110,424 170,432 C230,440 260,462 320,458 C380,454 410,436 460,440 C510,444 540,420 600,424 C660,428 690,452 750,448 C810,444 840,420 900,426 C960,432 990,456 1050,452 C1110,448 1150,468 1200,462 L1200,640 L0,640 Z"/>
+    <path class="hl-ridge" d="M0,470 C60,442 110,424 170,432 C230,440 260,462 320,458 C380,454 410,436 460,440 C510,444 540,420 600,424 C660,428 690,452 750,448 C810,444 840,420 900,426 C960,432 990,456 1050,452 C1110,448 1150,468 1200,462"/>
+
+    <!-- The stream, cut into the foreground -->
+    <path fill="url(#hl-water-grad)" d="M690,430 C674,466 640,500 606,534 C566,574 540,608 522,640 L818,640 C792,604 764,566 736,524 C716,494 700,458 690,430 Z"/>
+    <path class="hl-water-line hl-reflection" d="M676,466 C654,500 624,532 600,560"/>
+    <path class="hl-water-line hl-reflection" d="M696,470 C688,500 668,528 650,548"/>
+    <path class="hl-water-line hl-reflection" d="M640,590 C660,596 690,596 712,590"/>
+    <path class="hl-water-line hl-reflection" d="M586,614 C612,620 648,622 678,616"/>
+
+    <!-- Near hill on the right, with pines -->
+    <path class="hl-near" d="M744,640 C790,598 812,558 862,540 C914,521 948,538 998,530 C1048,522 1080,542 1120,536 C1156,530 1184,544 1200,540 L1200,640 Z"/>
+    <path class="hl-ridge" d="M744,640 C790,598 812,558 862,540 C914,521 948,538 998,530 C1048,522 1080,542 1120,536 C1156,530 1184,544 1200,540"/>
+
+    <use href="#hl-pine" transform="translate(872 546) scale(1.05)"/>
+    <use href="#hl-pine" transform="translate(952 532) scale(1.42)"/>
+    <use href="#hl-pine" transform="translate(1032 548) scale(1.12)"/>
+    <use href="#hl-pine" transform="translate(1102 556) scale(0.86)"/>
+    <use href="#hl-pine" transform="translate(1146 566) scale(0.66)"/>
+
+    <!-- Left bank and two smaller pines -->
+    <path class="hl-rock" d="M0,640 L0,556 C58,548 106,566 154,560 C208,553 244,574 292,570 C340,566 374,584 418,586 C444,588 460,604 472,640 Z"/>
+    <use href="#hl-pine" transform="translate(268 584) scale(0.62)"/>
+    <use href="#hl-pine" transform="translate(332 590) scale(0.48)"/>
+
+    <!-- Foreground fish boat, the human scale of the scene -->
+    <g transform="translate(626 586)">
+      <path class="hl-boat" d="M-27,0 C-14,7 14,7 27,0 L18,8 C6,12 -6,12 -18,8 Z"/>
+      <path class="hl-boat-line" d="M-18,-2 C-6,-5 6,-5 18,-2"/>
+      <path class="hl-boat-line" d="M2,-5 L2,-17"/>
+      <path class="hl-boat-line" d="M2,-17 C-3,-15 -5,-11 -6,-7"/>
+      <path class="hl-boat-line" d="M2,-20 C-1,-23 -2,-26 -2,-29"/>
+      <path class="hl-water-line hl-reflection" d="M-35,9 C-18,14 18,14 35,9"/>
+    </g>
+
+    <!-- Foreground reeds -->
+    <path class="hl-reed" d="M56,640 C54,596 62,566 74,540 M78,640 C82,602 92,578 106,560 M106,640 C108,606 118,588 132,574 M150,640 C156,616 166,602 180,594 M36,640 C40,612 46,594 56,580"/>
+    <path class="hl-reed" d="M74,540 C70,528 66,520 60,512 M106,560 C106,548 110,538 116,530 M132,574 C136,564 144,556 152,552"/>
+  </g>
+</svg>

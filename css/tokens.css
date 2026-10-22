@@ -1,0 +1,252 @@
+/* ==========================================================================
+   山色 / Hill Light · semantic tokens
+   Dawn is the default (works without JS). Themes override only the light:
+   color, contrast, haze, shadow. Geometry, type and spacing stay constant.
+   ========================================================================== */
+
+:root,
+[data-theme="dawn"] {
+  color-scheme: light;
+
+  /* Paper */
+  --bg: #f2efe7;
+  --bg-elevated: #f8f5ee;
+  --bg-subtle: #e9e5da;
+
+  /* Ink */
+  --text: #2b3538;
+  --text-muted: #58686b;
+  --text-faint: #5f6e6f;
+
+  /* Accent: a shared celadon family; night keeps the hue, loses chroma */
+  --accent: #2d6a66;
+  --accent-hover: #1f4f4c;
+  --accent-contrast: #f8f5ee;
+  --accent-soft: #d9e4df;
+
+  /* Lines */
+  --border: #d6d2c6;
+  --divider: #dcd8cd;
+
+  /* Reading aids */
+  --selection-bg: #cfe0da;
+  --focus-ring: #2d6a66;
+
+  /* Images: light is applied as a wash, never as a glow over the subject */
+  --img-overlay: #1b2626;
+  --img-overlay-opacity: 0.06;
+
+  /* Light and air (artwork variables) */
+  --sky-top: #e7e8e1;
+  --sky-bottom: #f4f1e8;
+  --light: #ede6ce;
+  --light-halo: #f2ecda;
+  --light-opacity: 0.72;
+  --mountain-far: #c3ccc5;
+  --mountain-mid: #9eaea6;
+  --mountain-near: #778c84;
+  --ridge-highlight: #f2f0e6;
+  --ridge-opacity: 0.32;
+  --mist: #f0eee6;
+  --haze-opacity: 0.55;
+  --tree: #526a61;
+  --tree-shade: #435a52;
+  --tree-rim: #dde5dc;
+  --tree-rim-opacity: 0.28;
+  --water: #b8c9c1;
+  --water-deep: #93a9a0;
+  --water-line: #e6ece5;
+  --water-light-opacity: 0.45;
+  --rock: #6b8078;
+  --boat: #3d4f4a;
+  --reed: #6f837b;
+  --art-saturation: 0.92;
+  --art-contrast: 0.94;
+
+  /* Motion */
+  --theme-transition: 300ms;
+  --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  /* Constant geometry / rhythm (identical in every theme) */
+  --measure: 680px;
+  --measure-wide: 1080px;
+  --gutter: 20px;
+  --radius: 2px;
+  --space-1: 0.375rem;
+  --space-2: 0.75rem;
+  --space-3: 1.125rem;
+  --space-4: 1.75rem;
+  --space-5: 2.75rem;
+  --space-6: 4rem;
+  --space-7: 6rem;
+  --font-serif: "Source Han Serif SC", "Noto Serif SC", "Songti SC", "SimSun", Georgia, serif;
+  --font-sans: "Source Han Sans SC", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
+  --text-base: 18px;
+  --text-small: 14px;
+  --text-micro: 12px;
+  --leading: 1.75;
+  --rule-weight: 1px;
+}
+
+[data-theme="noon"] {
+  color-scheme: light;
+
+  --bg: #faf6ec;
+  --bg-elevated: #fffcf4;
+  --bg-subtle: #f0ebdd;
+
+  --text: #263230;
+  --text-muted: #4f615b;
+  --text-faint: #5a6b62;
+
+  --accent: #1d6a55;
+  --accent-hover: #14503f;
+  --accent-contrast: #faf6ec;
+  --accent-soft: #d4e6dc;
+
+  --border: #d8d3c3;
+  --divider: #e0dacc;
+
+  --selection-bg: #cce5d8;
+  --focus-ring: #1d6a55;
+
+  --img-overlay: #132019;
+  --img-overlay-opacity: 0.05;
+
+  --sky-top: #f7f2e2;
+  --sky-bottom: #fbf7ec;
+  --light: #f2d488;
+  --light-halo: #f6e7b4;
+  --light-opacity: 1;
+  --mountain-far: #b7c8b5;
+  --mountain-mid: #86a48f;
+  --mountain-near: #557b66;
+  --ridge-highlight: #fbf4d8;
+  --ridge-opacity: 0.62;
+  --mist: #f6f3e6;
+  --haze-opacity: 0.18;
+  --tree: #33513f;
+  --tree-shade: #274132;
+  --tree-rim: #d8e4c8;
+  --tree-rim-opacity: 0.45;
+  --water: #a7c6b5;
+  --water-deep: #7fa795;
+  --water-line: #eff7e9;
+  --water-light-opacity: 0.6;
+  --rock: #5a7261;
+  --boat: #2f3d35;
+  --reed: #59735f;
+  --art-saturation: 1;
+  --art-contrast: 1;
+}
+
+[data-theme="dusk"] {
+  color-scheme: light;
+
+  --bg: #f1e2d0;
+  --bg-elevated: #f8ebda;
+  --bg-subtle: #e8d6c1;
+
+  --text: #3a2c26;
+  --text-muted: #67534a;
+  --text-faint: #725f55;
+
+  --accent: #35645d;
+  --accent-hover: #264e49;
+  --accent-contrast: #f8ebda;
+  --accent-soft: #e3d3c0;
+
+  --border: #d8c4ae;
+  --divider: #deccb8;
+
+  --selection-bg: #e4cfb6;
+  --focus-ring: #35645d;
+
+  --img-overlay: #2a1a12;
+  --img-overlay-opacity: 0.1;
+
+  --sky-top: #e8cdb4;
+  --sky-bottom: #f4e4d2;
+  --light: #e9a264;
+  --light-halo: #f2c29a;
+  --light-opacity: 0.9;
+  --mountain-far: #c2a28c;
+  --mountain-mid: #a27862;
+  --mountain-near: #775440;
+  --ridge-highlight: #f2c79a;
+  --ridge-opacity: 0.72;
+  --mist: #eed7c2;
+  --haze-opacity: 0.42;
+  --tree: #5e4432;
+  --tree-shade: #4a3426;
+  --tree-rim: #e9b98a;
+  --tree-rim-opacity: 0.5;
+  --water: #d0b69e;
+  --water-deep: #b08f76;
+  --water-line: #f6e2cb;
+  --water-light-opacity: 0.7;
+  --rock: #6e4f3d;
+  --boat: #3b2b23;
+  --reed: #7a5b45;
+  --art-saturation: 1.05;
+  --art-contrast: 0.96;
+}
+
+[data-theme="night"] {
+  color-scheme: dark;
+
+  --bg: #1b2223;
+  --bg-elevated: #232b2c;
+  --bg-subtle: #283132;
+
+  --text: #d7ddd9;
+  --text-muted: #a2aea9;
+  --text-faint: #87938e;
+
+  --accent: #8cb9ae;
+  --accent-hover: #a9cfc5;
+  --accent-contrast: #14201e;
+  --accent-soft: #2c3c39;
+
+  --border: #3a4644;
+  --divider: #313c3a;
+
+  --selection-bg: #35514b;
+  --focus-ring: #a9cfc5;
+
+  --img-overlay: #0c1212;
+  --img-overlay-opacity: 0.18;
+
+  --sky-top: #18201f;
+  --sky-bottom: #202a29;
+  --light: #dce4da;
+  --light-halo: #b9cfc6;
+  --light-opacity: 0.8;
+  --mountain-far: #354441;
+  --mountain-mid: #2b3b37;
+  --mountain-near: #22302d;
+  --ridge-highlight: #9ec4ba;
+  --ridge-opacity: 0.34;
+  --mist: #2e3c39;
+  --haze-opacity: 0.35;
+  --tree: #3f574f;
+  --tree-shade: #344a43;
+  --tree-rim: #a9c9bf;
+  --tree-rim-opacity: 0.38;
+  --water: #334743;
+  --water-deep: #2a3b38;
+  --water-line: #7ea39a;
+  --water-light-opacity: 0.4;
+  --rock: #2c3b38;
+  --boat: #0f1716;
+  --reed: #4a625b;
+  --art-saturation: 0.72;
+  --art-contrast: 0.9;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --theme-transition: 0ms;
+  }
+}

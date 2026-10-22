@@ -1,0 +1,205 @@
+/* ==========================================================================
+   Components: artwork, buttons, figures, small marks
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   The same valley, four lights
+   -------------------------------------------------------------------------- */
+
+.hero__art {
+  margin: 0;
+}
+
+.valley {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1200 / 720;
+  background: var(--bg-elevated);
+  border: var(--rule-weight) solid var(--border);
+  filter: saturate(var(--art-saturation)) contrast(var(--art-contrast));
+  transition:
+    border-color var(--theme-transition) var(--ease),
+    background-color var(--theme-transition) var(--ease),
+    filter var(--theme-transition) var(--ease);
+}
+
+.valley * {
+  transition:
+    fill var(--theme-transition) var(--ease),
+    stroke var(--theme-transition) var(--ease),
+    stop-color var(--theme-transition) var(--ease),
+    opacity var(--theme-transition) var(--ease);
+}
+
+.art-caption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px var(--space-3);
+  margin-top: 10px;
+  color: var(--text-faint);
+  font-family: var(--font-sans);
+  font-size: var(--text-micro);
+  letter-spacing: 0.05em;
+}
+
+/* --------------------------------------------------------------------------
+   Buttons and text links
+   -------------------------------------------------------------------------- */
+
+.btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 0 16px;
+  border: var(--rule-weight) solid var(--border);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--text-small);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--theme-transition) var(--ease),
+    color var(--theme-transition) var(--ease),
+    border-color var(--theme-transition) var(--ease);
+}
+
+.btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn--solid {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.btn--solid:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: var(--accent-contrast);
+}
+
+.btn--quiet {
+  border-color: transparent;
+  padding-inline: 8px;
+  color: var(--text-muted);
+}
+
+.btn--quiet:hover {
+  border-color: transparent;
+  color: var(--accent);
+}
+
+.text-link {
+  font-family: var(--font-sans);
+  font-size: var(--text-small);
+  letter-spacing: 0.02em;
+}
+
+.text-link::after {
+  content: " →";
+}
+
+.link-arrow {
+  padding-bottom: 2px;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  font-family: var(--font-sans);
+  font-size: var(--text-small);
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.link-arrow span {
+  margin-left: 4px;
+}
+
+.link-arrow--muted {
+  border-bottom-color: color-mix(in srgb, var(--text-muted) 45%, transparent);
+  color: var(--text-muted);
+}
+
+.link-arrow--muted:hover {
+  border-bottom-color: var(--accent);
+  color: var(--accent-hover);
+}
+
+/* --------------------------------------------------------------------------
+   Figures and the light wash over images
+   -------------------------------------------------------------------------- */
+
+.img-wrap {
+  position: relative;
+  margin: var(--space-4) 0;
+  overflow: hidden;
+  background: var(--bg-subtle);
+}
+
+.img-wrap img {
+  width: 100%;
+  height: auto;
+}
+
+.img-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--img-overlay);
+  opacity: var(--img-overlay-opacity);
+  pointer-events: none;
+  transition: opacity var(--theme-transition) var(--ease);
+}
+
+/* --------------------------------------------------------------------------
+   Small marks
+   -------------------------------------------------------------------------- */
+
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-size: var(--text-micro);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.kicker::before {
+  content: "";
+  flex: none;
+  width: 28px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.note {
+  margin: var(--space-4) 0;
+  padding: var(--space-3);
+  border: var(--rule-weight) solid var(--border);
+  border-left: 3px solid var(--accent);
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-size: var(--text-small);
+  line-height: 1.7;
+}
+
+.note strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.focus-sample {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}

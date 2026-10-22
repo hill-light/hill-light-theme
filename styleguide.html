@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dawn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>设计规范 · 山色 / Hill Light</title>
+  <meta name="description" content="Hill Light 的设计规范：四时色板、组件、度量、对比度与用法。">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f2efe7">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var themes = ["dawn", "noon", "dusk", "night"];
+      var theme = "dawn";
+      var source = "auto";
+      try {
+        var param = new URLSearchParams(window.location.search).get("theme");
+        var saved = window.localStorage.getItem("hill-light-theme");
+        var hour = new Date().getHours();
+        var byHour = hour >= 6 && hour < 11 ? "dawn"
+          : hour >= 11 && hour < 17 ? "noon"
+          : hour >= 17 && hour < 20 ? "dusk" : "night";
+        // ?theme= is a one-page preview: it wins for this document but is
+        // never persisted. The saved choice remains the default everywhere else.
+        if (themes.indexOf(param) > -1) {
+          theme = param;
+          source = "preview";
+        } else if (themes.indexOf(saved) > -1) {
+          theme = saved;
+          source = "manual";
+        } else {
+          theme = byHour;
+        }
+      } catch (error) {
+        /* dawn stays the default */
+      }
+      root.setAttribute("data-theme", theme);
+      root.setAttribute("data-theme-source", source);
+      root.style.colorScheme = theme === "night" ? "dark" : "light";
+    })();
+  </script>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <p class="visually-hidden" id="theme-status" role="status" aria-live="polite"></p>
+
+  <header class="site-header">
+    <div class="wrap-wide site-header__inner">
+      <a class="brand" href="index.html" aria-label="山色 Hill Light 首页">
+        <span class="brand__seal" aria-hidden="true">山</span>
+        <span class="brand__name">山色</span>
+        <span class="brand__latin">Hill Light</span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="index.html">主旨</a>
+        <a href="styleguide.html" aria-current="page">规范</a>
+        <a href="demo.html">长文</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="theme-switcher" role="group" aria-label="阅读主题">
+    <button class="theme-btn" type="button" data-theme-choice="dawn" aria-pressed="true" aria-label="切换到溪山晓雾，清晨">
+      <span class="theme-btn__dot" aria-hidden="true"></span>晓雾
+    </button>
+    <button class="theme-btn" type="button" data-theme-choice="noon" aria-pressed="false" aria-label="切换到溪山午荫，正午">
+      <span class="theme-btn__dot" aria-hidden="true"></span>午荫
+    </button>
+    <button class="theme-btn" type="button" data-theme-choice="dusk" aria-pressed="false" aria-label="切换到溪山暮烟，黄昏">
+      <span class="theme-btn__dot" aria-hidden="true"></span>暮烟
+    </button>
+    <button class="theme-btn" type="button" data-theme-choice="night" aria-pressed="false" aria-label="切换到溪山夜月，夜晚">
+      <span class="theme-btn__dot" aria-hidden="true"></span>夜月
+    </button>
+  </div>
+
+  <main id="main" class="wrap-wide">
+    <header class="page-head">
+      <p class="kicker">设计规范</p>
+      <h1>一山四时</h1>
+      <p class="lede">同样的排版，只换光。四个时辰共用一套语义变量、一套组件和一幅山水；色板、雾感与受光各自变化。</p>
+      <p class="page-head__meta">CSS 自定义属性 · 无构建 · 无外部字体 · 图标内联 SVG</p>
+    </header>
+
+    <section class="section" aria-labelledby="compare-title">
+      <div class="section__head">
+        <h2 id="compare-title">先看同一段文字</h2>
+        <p>最亮与最暗的两个时辰并排。左右两栏的结构、字号、行距完全相同，只有变量不同。</p>
+      </div>
+      <div class="compare-bar">
+        <button class="btn" type="button" id="compare-toggle" data-compare-toggle aria-pressed="false">并排对比 · 晓雾 / 夜月</button>
+        <span class="compare-bar__hint">用于检查语义变量在极端时辰下是否仍然成立。纯 CSS 两栏，不复制页面。</span>
+      </div>
+      <div class="compare" id="compare" hidden>
+        <div class="compare__grid">
+          <div class="compare__pane" data-theme="dawn">
+            <p class="compare__label">溪山晓雾 · dawn</p>
+            <p>山里的时间不是钟表给的，是光给的。天光从纸背透出来，先染亮窗边的桌面，再慢慢移到书页上。</p>
+            <p class="compare__meta">正文 18px / 行高 1.75 / 栏宽 680px</p>
+          </div>
+          <div class="compare__pane" data-theme="night">
+            <p class="compare__label">溪山夜月 · night</p>
+            <p>山里的时间不是钟表给的，是光给的。天光从纸背透出来，先染亮窗边的桌面，再慢慢移到书页上。</p>
+            <p class="compare__meta">正文 18px / 行高 1.75 / 栏宽 680px</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="palette-title">
+      <div class="section__head">
+        <h2 id="palette-title">四时色板</h2>
+        <p>色值只写在 <code>css/tokens.css</code>。组件引用语义名称，不引用十六进制。</p>
+      </div>
+      <p class="table-hint" id="palette-hint">左右滑动查看完整色板</p>
+      <div class="table-scroll" tabindex="0" role="region" aria-labelledby="palette-title" aria-describedby="palette-hint">
+        <table class="token-table">
+          <caption class="visually-hidden">语义变量在四个时辰中的取值</caption>
+          <thead>
+            <tr>
+              <th scope="col">变量</th>
+              <th scope="col">晓雾</th>
+              <th scope="col">午荫</th>
+              <th scope="col">暮烟</th>
+              <th scope="col">夜月</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><code>--bg</code><span>纸面</span></th>
+              <td><span class="swatch" data-theme="dawn" style="--swatch: var(--bg)" aria-hidden="true"></span></td>
+              <td><span class="swatch" data-theme="noon" style="--swatch: var(--bg)" aria-hidden="true"></span></td>
+              <td><span class="swatch" data-theme="dusk" style="--swatch: var(--bg)" aria-hidden="true"></span></td>
+              <td><span class="swatch" data-theme="night" style="--swatch: var(--bg)" aria-hidden="true"></span></td>
+            </tr>
+            <tr>
+              <th scope="row"><code>--bg-elevated</code><span>抬升面</span></th>
+              <td><span class="swatch" data-theme="dawn" style="--swatch: var(--bg-elevated)" aria-hidden="true"></span></td>
+              <td><span class="swatch" data-theme="noon" style="--swatch: var(--bg-elevated)" aria-hidden="true"></span></td>
+              <td><span class="swatch" data-theme="dusk" style="--swatch: var(--bg-elevated)" aria-hidden="true"></span></td>
+              <td><span class="swatch" data-theme="night" style="--swatch: var(--bg-elevated)" aria-hidden="true"></span></td>
+            </tr>
+            <tr>
+              <th scope="row"><code>--bg-subtle</code><span>次级面</span></th>
+              <td><span class="swatch" data-theme="dawn" style="--swatch: var(--bg-subtle)" aria-hidden="true"></span></td>
+              <td><span class="swatch" data-theme="noon" style="--swatch: var(--bg-subtle)" aria-hidden="true"></span></td>
+              <td><span class="swatch" data-theme="dusk" style="--swatch: var(--bg-subtle)" aria-hidden="true"></span></td>
+              <td><span class="swatch" data-theme="night" style="--swatch: var(--bg-subtle)" aria-hidden="true"></span></td>
+            </tr>
+            <tr>
+              <th scope="row"><code>--text</code><span>墨</span></th>
+              <td><span class="swatch" data-theme="dawn" style="--swatch: var(--text)" aria-hidden="true"></span></td>
+              <td><span class="swatch" data-theme="noon" style="--swatch: var(--text)" aria-hidden="true"></span></td>
+              <td><span class="swatch" data-theme="dusk" style="--swatch: var(--text)" aria-hidden="true"></span></td>
+              <td><span class="swatch" data-theme="night" style="--swatch: var(--text)" aria-hidden="true"></span></td>
+            </tr>
+            <tr>
+              <th scope="row"><code>--text-muted</code><span>淡墨</span></th>
+              <td><span class="swatch" data-theme="dawn" style="--swatch: var(--text-muted)" aria-hidden="true"></span></td>
+              <td><span class="swatch" data-theme="noon" style="--swatch: var(--text-muted)" aria-hidden="true"></span></td>
+              <td><span class="swatch" data-theme="dusk" style="--swatch: var(--text-muted)" aria-hidden="true"></span></td>
+              <td><span class="swatch" data-theme="night" style="--swatch: var(--text-muted)" aria-hidden="true"></span></td>
+            </tr>
+            <tr>
+              <th scope="row"><code>--accent</code><span>朱砂</span></th>
+              <td><span class="swatch" data-theme="dawn" style="--swatch: var(--accent)" aria-hidden="true"></span></td>
+              <td><span class="swatch" data-theme="noon" style="--swatch: var(--accent)" aria-hidden="true"></span></td>
+              <td><span class="swatch" data-theme="dusk" style="--swatch: var(--accent)" aria-hidden="true"></span></td>
+              <td><span class="swatch" data-theme="night" style="--swatch: var(--accent)" aria-hidden="true"></span></td>
+            </tr>
+            <tr>
+              <th scope="row"><code>--border</code><span>界</span></th>
+              <td><span class="swatch" data-theme="dawn" style="--swatch: var(--border)" aria-hidden="true"></span></td>
+              <td><span class="swatch" data-theme="noon" style="--swatch: var(--border)" aria-hidden="true"></span></td>
+              <td><span class="swatch" data-theme="dusk" style="--swatch: var(--border)" aria-hidden="true"></span></td>
+              <td><span class="swatch" data-theme="night" style="--swatch: var(--border)" aria-hidden="true"></span></td>
+            </tr>
+            <tr>
+              <th scope="row"><code>--selection-bg</code><span>选区</span></th>
+              <td><span class="swatch" data-theme="dawn" style="--swatch: var(--selection-bg)" aria-hidden="true"></span></td>
+              <td><span class="swatch" data-theme="noon" style="--swatch: var(--selection-bg)" aria-hidden="true"></span></td>
+              <td><span class="swatch" data-theme="dusk" style="--swatch: var(--selection-bg)" aria-hidden="true"></span></td>
+              <td><span class="swatch" data-theme="night" style="--swatch: var(--selection-bg)" aria-hidden="true"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="components-title">
+      <div class="section__head">
+        <h2 id="components-title">四套主题下的组件</h2>
+        <p>同一份标记，四种光。检查标题、链接、引用、代码、按钮与焦点环是否都跟着变量走。</p>
+      </div>
+      <div class="specimen-grid">
+        <article class="specimen" data-theme="dawn">
+          <header class="specimen__head">
+            <p class="specimen__name">溪山晓雾 <code>dawn</code></p>
+            <p class="specimen__note">清晨 6–11 时 · 薄雾、微暖、低对比</p>
+          </header>
+          <div class="specimen__swatches" aria-hidden="true">
+            <span style="--swatch: var(--bg)"></span>
+            <span style="--swatch: var(--text)"></span>
+            <span style="--swatch: var(--accent)"></span>
+            <span style="--swatch: var(--border)"></span>
+            <span style="--swatch: var(--bg-subtle)"></span>
+          </div>
+          <h3>山川与光</h3>
+          <h4>标题层级与正文</h4>
+          <p>山里的时间不是钟表给的，是光给的。读一页，光就挪一寸。链接如 <a href="index.html">溪流</a>，引用如右。</p>
+          <blockquote><p>山形不动，光在移动。</p></blockquote>
+          <pre><code>--bg: #f2efe7;
+--accent: #2d6a66;</code></pre>
+          <div class="specimen__actions">
+            <span class="btn btn--solid">实底按钮</span>
+            <span class="btn">描边按钮</span>
+            <span class="btn focus-sample" tabindex="-1">焦点环</span>
+          </div>
+          <p class="specimen__vars">雾 24% · 受光 1 · 图遮罩 0.06 · 过渡 300ms</p>
+        </article>
+
+        <article class="specimen" data-theme="noon">
+          <header class="specimen__head">
+            <p class="specimen__name">溪山午荫 <code>noon</code></p>
+            <p class="specimen__note">正午 11–17 时 · 高亮、短影、清楚</p>
+          </header>
+          <div class="specimen__swatches" aria-hidden="true">
+            <span style="--swatch: var(--bg)"></span>
+            <span style="--swatch: var(--text)"></span>
+            <span style="--swatch: var(--accent)"></span>
+            <span style="--swatch: var(--border)"></span>
+            <span style="--swatch: var(--bg-subtle)"></span>
+          </div>
+          <h3>山川与光</h3>
+          <h4>标题层级与正文</h4>
+          <p>山里的时间不是钟表给的，是光给的。读一页，光就挪一寸。链接如 <a href="index.html">溪流</a>，引用如右。</p>
+          <blockquote><p>山形不动，光在移动。</p></blockquote>
+          <pre><code>--bg: #faf6ec;
+--accent: #1d6a55;</code></pre>
+          <div class="specimen__actions">
+            <span class="btn btn--solid">实底按钮</span>
+            <span class="btn">描边按钮</span>
+            <span class="btn focus-sample" tabindex="-1">焦点环</span>
+          </div>
+          <p class="specimen__vars">雾 6% · 受光 1.15 · 图遮罩 0.03 · 过渡 300ms</p>
+        </article>
+
+        <article class="specimen" data-theme="dusk">
+          <header class="specimen__head">
+            <p class="specimen__name">溪山暮烟 <code>dusk</code></p>
+            <p class="specimen__note">黄昏 17–20 时 · 暖赭、长影、低角度</p>
+          </header>
+          <div class="specimen__swatches" aria-hidden="true">
+            <span style="--swatch: var(--bg)"></span>
+            <span style="--swatch: var(--text)"></span>
+            <span style="--swatch: var(--accent)"></span>
+            <span style="--swatch: var(--border)"></span>
+            <span style="--swatch: var(--bg-subtle)"></span>
+          </div>
+          <h3>山川与光</h3>
+          <h4>标题层级与正文</h4>
+          <p>山里的时间不是钟表给的，是光给的。读一页，光就挪一寸。链接如 <a href="index.html">溪流</a>，引用如右。</p>
+          <blockquote><p>山形不动，光在移动。</p></blockquote>
+          <pre><code>--bg: #f1e2d0;
+--accent: #35645d;</code></pre>
+          <div class="specimen__actions">
+            <span class="btn btn--solid">实底按钮</span>
+            <span class="btn">描边按钮</span>
+            <span class="btn focus-sample" tabindex="-1">焦点环</span>
+          </div>
+          <p class="specimen__vars">雾 20% · 受光 0.8 · 图遮罩 0.08 · 过渡 300ms</p>
+        </article>
+
+        <article class="specimen" data-theme="night">
+          <header class="specimen__head">
+            <p class="specimen__name">溪山夜月 <code>night</code></p>
+            <p class="specimen__note">夜晚 20–6 时 · 深灰、冷月、低饱和</p>
+          </header>
+          <div class="specimen__swatches" aria-hidden="true">
+            <span style="--swatch: var(--bg)"></span>
+            <span style="--swatch: var(--text)"></span>
+            <span style="--swatch: var(--accent)"></span>
+            <span style="--swatch: var(--border)"></span>
+            <span style="--swatch: var(--bg-subtle)"></span>
+          </div>
+          <h3>山川与光</h3>
+          <h4>标题层级与正文</h4>
+          <p>山里的时间不是钟表给的，是光给的。读一页，光就挪一寸。链接如 <a href="index.html">溪流</a>，引用如右。</p>
+          <blockquote><p>山形不动，光在移动。</p></blockquote>
+          <pre><code>--bg: #1b2223;
+--accent: #8cb9ae;</code></pre>
+          <div class="specimen__actions">
+            <span class="btn btn--solid">实底按钮</span>
+            <span class="btn">描边按钮</span>
+            <span class="btn focus-sample" tabindex="-1">焦点环</span>
+          </div>
+          <p class="specimen__vars">雾 18% · 受光 0.55 · 图遮罩 0.18 · 过渡 300ms</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="metrics-title">
+      <div class="section__head">
+        <h2 id="metrics-title">字号与节奏</h2>
+        <p>中文正文的尺度。数值来自实际阅读测试，不是通用比例表。</p>
+      </div>
+      <div class="metrics">
+        <dl>
+          <div>
+            <dt>正文</dt>
+            <dd>18px / 1.75（手机 17px）</dd>
+          </div>
+          <div>
+            <dt>阅读栏宽</dt>
+            <dd>680px，手机左右 20px</dd>
+          </div>
+          <div>
+            <dt>标题</dt>
+            <dd>h1 2.6rem · h2 1.55rem · h3 1.15rem</dd>
+          </div>
+          <div>
+            <dt>段落与章节</dt>
+            <dd>段距 1.2em · 章节 4.5rem</dd>
+          </div>
+          <div>
+            <dt>圆角</dt>
+            <dd>2px，近纸的直角</dd>
+          </div>
+          <div>
+            <dt>对比度</dt>
+            <dd>正文 ≥ 7:1 · 次要 ≥ 4.5:1</dd>
+          </div>
+          <div>
+            <dt>过渡</dt>
+            <dd>300ms 背景 / 墨色 / 边框 / 填充</dd>
+          </div>
+          <div>
+            <dt>焦点</dt>
+            <dd>2px 焦点环，偏移 3px</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="usage-title">
+      <div class="section__head">
+        <h2 id="usage-title">用法</h2>
+        <p>四件事：自动与手动、无脚本、减少动效、增加时辰。</p>
+      </div>
+      <ol class="notes">
+        <li>
+          <h3>自动与手动</h3>
+          <p>首次访问按本地时间落在晓雾、午荫、暮烟或夜月；点击切换后记住选择。URL 加 <code>?theme=night</code> 可临时预览，不写入偏好。</p>
+        </li>
+        <li>
+          <h3>无脚本</h3>
+          <p>脚本不可用时，页面保持晓雾（暖纸 + 深墨），切换器隐藏。内容、链接与图注全部可读。</p>
+        </li>
+        <li>
+          <h3>减少动效</h3>
+          <p>系统开启「减少动态效果」时，主题过渡直接关闭，雾与受光不做动画。</p>
+        </li>
+        <li>
+          <h3>增加时辰</h3>
+          <p>在 <code>tokens.css</code> 里复制一组语义变量，给 <code>[data-theme="名字"]</code>；再在 <code>js/theme.js</code> 与切换器里各加一项。组件无需改动。</p>
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap-wide site-footer__inner">
+      <p>纯静态页面 · 无外部字体 · 无追踪</p>
+      <p class="theme-state">此刻 · <strong data-theme-label>溪山晓雾</strong> · <span data-theme-source-label>按本地时间</span></p>
+      <p><a href="index.html">回到主旨</a> · 山色 / Hill Light · MIT</p>
+    </div>
+  </footer>
+
+  <script src="js/theme.js" defer></script>
+</body>
+</html>

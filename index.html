@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dawn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>山色 / Hill Light · 一山四时，光落在纸上</title>
+  <meta name="description" content="山色 / Hill Light 是一套为中文长文准备的四时阅读主题：同一座山、同一份版面，随一天的光线从晓雾走到夜月。">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f2efe7">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var themes = ["dawn", "noon", "dusk", "night"];
+      var theme = "dawn";
+      var source = "auto";
+      try {
+        var param = new URLSearchParams(window.location.search).get("theme");
+        var saved = window.localStorage.getItem("hill-light-theme");
+        var hour = new Date().getHours();
+        var byHour = hour >= 6 && hour < 11 ? "dawn"
+          : hour >= 11 && hour < 17 ? "noon"
+          : hour >= 17 && hour < 20 ? "dusk" : "night";
+        // ?theme= is a one-page preview: it wins for this document but is
+        // never persisted. The saved choice remains the default everywhere else.
+        if (themes.indexOf(param) > -1) {
+          theme = param;
+          source = "preview";
+        } else if (themes.indexOf(saved) > -1) {
+          theme = saved;
+          source = "manual";
+        } else {
+          theme = byHour;
+        }
+      } catch (error) {
+        /* dawn stays the default */
+      }
+      root.setAttribute("data-theme", theme);
+      root.setAttribute("data-theme-source", source);
+      root.style.colorScheme = theme === "night" ? "dark" : "light";
+    })();
+  </script>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <p class="visually-hidden" id="theme-status" role="status" aria-live="polite"></p>
+
+  <header class="site-header">
+    <div class="wrap-wide site-header__inner">
+      <a class="brand" href="index.html" aria-label="山色 Hill Light 首页">
+        <span class="brand__seal" aria-hidden="true">山</span>
+        <span class="brand__name">山色</span>
+        <span class="brand__latin">Hill Light</span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="index.html" aria-current="page">主旨</a>
+        <a href="styleguide.html">规范</a>
+        <a href="demo.html">长文</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="theme-switcher" role="group" aria-label="阅读主题">
+    <button class="theme-btn" type="button" data-theme-choice="dawn" aria-pressed="true" aria-label="切换到溪山晓雾，清晨">
+      <span class="theme-btn__dot" aria-hidden="true"></span>晓雾
+    </button>
+    <button class="theme-btn" type="button" data-theme-choice="noon" aria-pressed="false" aria-label="切换到溪山午荫，正午">
+      <span class="theme-btn__dot" aria-hidden="true"></span>午荫
+    </button>
+    <button class="theme-btn" type="button" data-theme-choice="dusk" aria-pressed="false" aria-label="切换到溪山暮烟，黄昏">
+      <span class="theme-btn__dot" aria-hidden="true"></span>暮烟
+    </button>
+    <button class="theme-btn" type="button" data-theme-choice="night" aria-pressed="false" aria-label="切换到溪山夜月，夜晚">
+      <span class="theme-btn__dot" aria-hidden="true"></span>夜月
+    </button>
+  </div>
+
+  <main id="main" class="wrap-wide">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__grid">
+        <div>
+          <p class="kicker">Hill Light · 四时阅读主题</p>
+          <h1 class="hero__title" id="hero-title">
+            <span class="hero__title-name">山色</span>
+            <span class="hero__title-line">一山四时，<em class="hero__title-accent">光落在纸上</em>。</span>
+          </h1>
+          <p class="hero__lede">「山色」是一套为中文长文准备的阅读主题：同一座山、同一份版面，随一天的光线从晓雾走到夜月。四时共用一套语义变量，切换只改纸、墨、雾与受光。</p>
+          <p class="hero__lede">它不靠换插画来制造情绪，而是让排版留在原地——栏宽、行距、节奏都不动，只有光在移动。</p>
+          <div class="hero__actions">
+            <a class="link-arrow" href="demo.html">读一篇长文 <span aria-hidden="true">→</span></a>
+            <a class="link-arrow link-arrow--muted" href="styleguide.html">查看设计规范 <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+
+        <figure class="hero__art">
+          <svg class="valley" viewBox="0 0 1200 720" role="img" aria-labelledby="valley-title valley-desc">
+            <title id="valley-title">溪山四时</title>
+            <desc id="valley-desc">同一幅山路、溪流与松树的矢量构图。天空、远山、雾、受光与溪面反光随四个时辰变化，其他形状不动。</desc>
+            <defs>
+              <linearGradient id="art-sky-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" style="stop-color: var(--sky-top)"></stop>
+                <stop offset="1" style="stop-color: var(--sky-bottom)"></stop>
+              </linearGradient>
+              <radialGradient id="art-glow-grad" cx="0.5" cy="0.5" r="0.5">
+                <stop offset="0" stop-opacity="0.55" style="stop-color: var(--light)"></stop>
+                <stop offset="1" stop-opacity="0" style="stop-color: var(--light)"></stop>
+              </radialGradient>
+              <linearGradient id="art-mist-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-opacity="0" style="stop-color: var(--mist)"></stop>
+                <stop offset="0.45" stop-opacity="0.95" style="stop-color: var(--mist)"></stop>
+                <stop offset="1" stop-opacity="0" style="stop-color: var(--mist)"></stop>
+              </linearGradient>
+              <linearGradient id="art-mist-fade" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#ffffff" stop-opacity="0"></stop>
+                <stop offset="0.18" stop-color="#ffffff" stop-opacity="1"></stop>
+                <stop offset="0.82" stop-color="#ffffff" stop-opacity="1"></stop>
+                <stop offset="1" stop-color="#ffffff" stop-opacity="0"></stop>
+              </linearGradient>
+              <mask id="art-mist-mask" maskUnits="userSpaceOnUse" x="0" y="350" width="1200" height="190">
+                <rect x="0" y="350" width="1200" height="190" fill="url(#art-mist-fade)"></rect>
+              </mask>
+            </defs>
+
+            <rect width="1200" height="720" style="fill: url(#art-sky-grad)"></rect>
+            <circle cx="872" cy="204" r="168" style="fill: url(#art-glow-grad)"></circle>
+            <circle cx="872" cy="204" r="50" style="fill: var(--light)"></circle>
+
+            <path d="M0 352 L112 262 L212 322 L302 232 L394 316 L470 268 L562 336 L660 270 L760 340 L852 300 L952 352 L1042 300 L1132 350 L1200 330 L1200 470 L0 470 Z"
+                  style="fill: var(--mountain-far); opacity: 0.62"></path>
+            <path d="M0 444 L92 352 L202 410 L312 300 L432 404 L522 336 L642 420 L752 330 L872 414 L982 352 L1092 430 L1200 402 L1200 552 L0 552 Z"
+                  style="fill: var(--mountain-mid); opacity: 0.9"></path>
+            <path d="M312 300 L432 404 L386 404 L332 348 Z" style="fill: var(--ridge-highlight); opacity: var(--ridge-opacity)"></path>
+            <path d="M752 330 L872 414 L820 414 L772 372 Z" style="fill: var(--ridge-highlight); opacity: var(--ridge-opacity)"></path>
+            <path d="M112 262 L212 322 L168 322 L128 288 Z" style="fill: var(--ridge-highlight); opacity: calc(var(--ridge-opacity) * 0.7)"></path>
+
+            <rect x="0" y="350" width="1200" height="190" mask="url(#art-mist-mask)" style="fill: url(#art-mist-grad); opacity: var(--haze-opacity)"></rect>
+            <path d="M0 560 C120 498 240 494 360 528 C480 562 560 518 680 524 C800 530 884 578 1004 568 C1092 560 1152 526 1200 534 L1200 720 L0 720 Z"
+                  style="fill: var(--mountain-near); opacity: 0.94"></path>
+
+            <path d="M586 720 C606 662 642 610 694 566 C736 530 780 520 828 526 L862 538 C812 562 780 606 760 660 C746 698 742 720 742 720 Z"
+                  style="fill: var(--water); opacity: 0.8"></path>
+            <path d="M700 720 C714 676 740 638 776 606" style="fill: none; stroke: var(--water-line); stroke-width: 3; opacity: var(--water-light-opacity)"></path>
+            <path d="M646 720 C664 680 690 650 722 624" style="fill: none; stroke: var(--water-line); stroke-width: 2; opacity: var(--water-light-opacity)"></path>
+
+            <g style="fill: var(--tree)">
+              <path d="M150 690 L150 552" style="fill: none; stroke: var(--tree); stroke-width: 5; opacity: 0.85"></path>
+              <path transform="translate(150 470) scale(1.25)" d="M0 0 L-16 30 L-6 27 L-24 58 L-10 54 L-30 88 L30 88 L10 54 L24 58 L6 27 L16 30 Z"></path>
+              <path transform="translate(206 560) scale(0.8)" d="M0 0 L-16 30 L-6 27 L-24 58 L-10 54 L-30 88 L30 88 L10 54 L24 58 L6 27 L16 30 Z"></path>
+              <path transform="translate(1062 640) scale(1.4)" d="M0 0 L-16 30 L-6 27 L-24 58 L-10 54 L-30 88 L30 88 L10 54 L24 58 L6 27 L16 30 Z"></path>
+              <path transform="translate(1118 606) scale(0.9)" d="M0 0 L-16 30 L-6 27 L-24 58 L-10 54 L-30 88 L30 88 L10 54 L24 58 L6 27 L16 30 Z"></path>
+              <path transform="translate(432 600) scale(0.6)" d="M0 0 L-16 30 L-6 27 L-24 58 L-10 54 L-30 88 L30 88 L10 54 L24 58 L6 27 L16 30 Z"></path>
+            </g>
+
+            <g style="fill: none; stroke: var(--text); stroke-width: 2; opacity: 0.4; stroke-linecap: round">
+              <path d="M322 244 q12 -9 24 0 q12 -9 24 0"></path>
+              <path d="M392 216 q10 -7 20 0 q10 -7 20 0"></path>
+            </g>
+          </svg>
+          <figcaption class="art-caption">
+            <span>同一构图 · 只换光</span>
+            <span><span data-theme-label>溪山晓雾</span> · <span data-theme-source-label>按本地时间</span></span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <nav class="season-links" aria-label="四时入口">
+        <a class="season-link" href="demo.html?theme=dawn" data-theme-link="dawn">
+          <span class="season-link__index">01 · 06:00–11:00</span>
+          <span class="season-link__name">溪山晓雾</span>
+          <span class="season-link__time">薄雾 · 微暖 · 低对比</span>
+        </a>
+        <a class="season-link" href="demo.html?theme=noon" data-theme-link="noon">
+          <span class="season-link__index">02 · 11:00–17:00</span>
+          <span class="season-link__name">溪山午荫</span>
+          <span class="season-link__time">高亮 · 短影 · 清楚</span>
+        </a>
+        <a class="season-link" href="demo.html?theme=dusk" data-theme-link="dusk">
+          <span class="season-link__index">03 · 17:00–20:00</span>
+          <span class="season-link__name">溪山暮烟</span>
+          <span class="season-link__time">暖赭 · 长影 · 低角度</span>
+        </a>
+        <a class="season-link" href="demo.html?theme=night" data-theme-link="night">
+          <span class="season-link__index">04 · 20:00–06:00</span>
+          <span class="season-link__name">溪山夜月</span>
+          <span class="season-link__time">深灰 · 冷月 · 低饱和</span>
+        </a>
+      </nav>
+    </section>
+
+    <section class="section principles" aria-labelledby="principles-title">
+      <div class="principles__intro">
+        <h2 class="principles__title" id="principles-title">先决定纸，<br>再决定墨。</h2>
+        <div class="principles__list">
+          <article class="principle">
+            <p class="principle__index">01</p>
+            <div>
+              <h3>纸先于色</h3>
+              <p>背景是一张纸，不是一块屏幕。微暖的米色、一盏泄冷的雾灰、深灰的夜，先决定纸，再决定墨。正文对比保持在 7:1 以上，但纸永远不发亮。</p>
+            </div>
+          </article>
+          <article class="principle">
+            <p class="principle__index">02</p>
+            <div>
+              <h3>语义先于色值</h3>
+              <p>组件只认识 <code>--bg</code>、<code>--text</code>、<code>--accent</code>。四个时辰各自给值，切换时没有哪个局部会忘记变，也没有哪条规则需要重写。</p>
+            </div>
+          </article>
+          <article class="principle">
+            <p class="principle__index">03</p>
+            <div>
+              <h3>光先于装饰</h3>
+              <p>同一幅矢量山水，只改天光、雾的厚薄、山脊的受光与溪面的反光。布局不动，图不换；情绪来自光，而不是来自新的插画。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="manifesto-title">
+      <h2 class="visually-hidden" id="manifesto-title">设计主张</h2>
+      <p class="manifesto">好的主题不是换一张壁纸，<br>是让同一段文字，<br>在不同时辰里都成立。</p>
+    </section>
+
+    <section class="section" aria-labelledby="read-title">
+      <div class="reading-preview">
+        <div class="reading-preview__copy">
+          <p class="kicker">示例长文</p>
+          <h2 id="read-title">山静日长</h2>
+          <p>一篇约 1,100 字的阅读测试：正文、引用、代码、图片、目录与四时切换都在同一个页面里。读到最后一行，再判断纸和墨。</p>
+          <p class="reading-preview__more"><a class="link-arrow" href="demo.html">走进长文 <span aria-hidden="true">→</span></a></p>
+        </div>
+        <dl class="reading-facts">
+          <div>
+            <dt>阅读栏宽</dt>
+            <dd><strong>680</strong> px</dd>
+          </div>
+          <div>
+            <dt>正文</dt>
+            <dd><strong>18</strong> px / 1.75</dd>
+          </div>
+          <div>
+            <dt>一套版面</dt>
+            <dd><strong>4</strong> 个时辰</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="use-title">
+      <div class="section__head">
+        <p class="kicker">放在你的站点里</p>
+        <h2 id="use-title">无依赖，无构建</h2>
+        <p>三份 CSS、一份纯 JS、两张 SVG。没有外部字体，没有追踪，也不需要有。
+
+        </p>
+      </div>
+      <ol class="notes">
+        <li>
+          <h3>直接打开</h3>
+          <p>下载后双击 <code>index.html</code> 即可。所有路径都是相对路径，放到任何静态站点或 GitHub Pages 都能用。</p>
+        </li>
+        <li>
+          <h3>记住一个时辰</h3>
+          <p>首次按本地时间落在晓雾、午荫、暮烟或夜月；手动切换后存在本机。收藏 <code>?theme=night</code> 可固定预览。</p>
+        </li>
+        <li>
+          <h3>接进项目</h3>
+          <p>把 <code>css/</code>、<code>js/</code>、<code>assets/</code> 放进站点，在 <code>&lt;html data-theme&gt;</code> 上挂主题。组件只引用语义变量，无需改色值。</p>
+        </li>
+        <li>
+          <h3>先读规范</h3>
+          <p><a href="styleguide.html">设计规范</a>里有四时色板、并排对比、组件标本与字号节奏，改主题前值得先看一遍。</p>
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap-wide site-footer__inner">
+      <p>纯静态页面 · 无外部字体 · 无追踪</p>
+      <p class="theme-state">此刻 · <strong data-theme-label>溪山晓雾</strong> · <span data-theme-source-label>按本地时间</span></p>
+      <p>山色 / Hill Light · MIT</p>
+    </div>
+  </footer>
+
+  <script src="js/theme.js" defer></script>
+</body>
+</html>

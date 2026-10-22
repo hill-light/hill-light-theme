@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="山色标志">
+  <rect width="64" height="64" fill="#f2efe7"/>
+  <rect x="1" y="1" width="62" height="62" fill="none" stroke="#2d6a66" stroke-width="1.5"/>
+  <circle cx="45" cy="19" r="6" fill="#c9a15a"/>
+  <path d="M4 50 L17 32 L26 43 L36 26 L48 44 L56 37 L60 50 Z" fill="#5e7670"/>
+  <path d="M4 50 L17 36 L27 46 L37 30 L47 45 L56 40 L60 50" fill="none" stroke="#2b3538" stroke-width="1.2" opacity=".45"/>
+  <path d="M33 57 C38 52 44 52 50 57" fill="none" stroke="#2d6a66" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

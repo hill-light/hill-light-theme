@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="valley-title">
+  <title id="valley-title">晴光下的山谷与溪流</title>
+  <defs>
+    <linearGradient id="vsky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f5f0df"/>
+      <stop offset=".62" stop-color="#faf7ec"/>
+      <stop offset="1" stop-color="#edefe3"/>
+    </linearGradient>
+    <radialGradient id="vsun" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#e5c98f" stop-opacity=".85"/>
+      <stop offset=".55" stop-color="#e5c98f" stop-opacity=".25"/>
+      <stop offset="1" stop-color="#e5c98f" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="vwater" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b9cdc3"/>
+      <stop offset="1" stop-color="#93ada1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" fill="url(#vsky)"/>
+  <circle cx="900" cy="150" r="200" fill="url(#vsun)"/>
+  <circle cx="900" cy="150" r="44" fill="#e2c68c"/>
+  <path d="M0 380 C120 330 210 300 320 326 C430 352 470 286 580 292 C690 298 740 340 830 322 C920 304 1010 344 1100 330 C1140 324 1170 336 1200 330 L1200 720 L0 720 Z" fill="#c1ccc0"/>
+  <path d="M0 440 C100 402 180 376 280 396 C380 416 430 372 530 380 C630 388 690 424 780 414 C870 404 930 372 1020 388 C1100 402 1150 428 1200 422 L1200 720 L0 720 Z" fill="#a2b2a5"/>
+  <path d="M0 540 C120 498 220 486 330 502 C440 518 500 478 610 486 C720 494 780 536 890 528 C1000 520 1080 490 1200 506 L1200 720 L0 720 Z" fill="#829789"/>
+  <path d="M0 630 C140 596 260 600 380 614 C500 628 560 600 680 606 C800 612 880 642 1000 634 C1090 628 1150 612 1200 616 L1200 720 L0 720 Z" fill="#6b8274"/>
+  <path d="M770 720 C742 666 706 622 660 588 C620 558 600 538 590 516 L646 512 C664 540 700 566 742 598 C790 634 818 676 842 720 Z" fill="url(#vwater)"/>
+  <path d="M770 720 C742 666 706 622 660 588" fill="none" stroke="#eef2e9" stroke-width="3" opacity=".7"/>
+  <path d="M806 720 C782 676 752 642 716 614" fill="none" stroke="#eef2e9" stroke-width="2" opacity=".55"/>
+  <g fill="#4d6356">
+    <path d="M150 664 L150 478" stroke="#4d6356" stroke-width="5"/>
+    <path d="M150 510 C120 500 100 480 88 456 C120 462 140 480 150 500 C160 476 184 460 214 454 C198 482 174 500 150 510 Z"/>
+    <path d="M150 550 C126 542 110 526 102 506 C128 512 144 526 150 542 C158 524 176 512 200 508 C188 530 170 544 150 550 Z"/>
+    <path d="M1040 690 L1040 520" stroke="#4d6356" stroke-width="4"/>
+    <path d="M1040 548 C1016 540 1000 524 992 504 C1018 510 1034 524 1040 540 C1048 522 1064 510 1088 506 C1076 528 1058 542 1040 548 Z"/>
+  </g>
+  <path d="M0 690 C80 676 140 684 210 700 L210 720 L0 720 Z" fill="#57705f" opacity=".55"/>
+  <g stroke="#f4f0e2" stroke-width="1.4" fill="none" opacity=".6">
+    <path d="M440 300 C500 320 560 324 620 316"/>
+    <path d="M300 360 C360 374 420 378 480 372"/>
+  </g>
+</svg>

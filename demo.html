@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dawn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>山静日长 · 山色 / Hill Light</title>
+  <meta name="description" content="一篇用来检验 Hill Light 阅读面、图片压暗与四时切换的示例长文：山静日长。">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f2efe7">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var themes = ["dawn", "noon", "dusk", "night"];
+      var theme = "dawn";
+      var source = "auto";
+      try {
+        var param = new URLSearchParams(window.location.search).get("theme");
+        var saved = window.localStorage.getItem("hill-light-theme");
+        var hour = new Date().getHours();
+        var byHour = hour >= 6 && hour < 11 ? "dawn"
+          : hour >= 11 && hour < 17 ? "noon"
+          : hour >= 17 && hour < 20 ? "dusk" : "night";
+        // ?theme= is a one-page preview: it wins for this document but is
+        // never persisted. The saved choice remains the default everywhere else.
+        if (themes.indexOf(param) > -1) {
+          theme = param;
+          source = "preview";
+        } else if (themes.indexOf(saved) > -1) {
+          theme = saved;
+          source = "manual";
+        } else {
+          theme = byHour;
+        }
+      } catch (error) {
+        /* dawn stays the default */
+      }
+      root.setAttribute("data-theme", theme);
+      root.setAttribute("data-theme-source", source);
+      root.style.colorScheme = theme === "night" ? "dark" : "light";
+    })();
+  </script>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <p class="visually-hidden" id="theme-status" role="status" aria-live="polite"></p>
+
+  <header class="site-header">
+    <div class="wrap-wide site-header__inner">
+      <a class="brand" href="index.html" aria-label="山色 Hill Light 首页">
+        <span class="brand__seal" aria-hidden="true">山</span>
+        <span class="brand__name">山色</span>
+        <span class="brand__latin">Hill Light</span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="index.html">主旨</a>
+        <a href="styleguide.html">规范</a>
+        <a href="demo.html" aria-current="page">长文</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="theme-switcher" role="group" aria-label="阅读主题">
+    <button class="theme-btn" type="button" data-theme-choice="dawn" aria-pressed="true" aria-label="切换到溪山晓雾，清晨">
+      <span class="theme-btn__dot" aria-hidden="true"></span>晓雾
+    </button>
+    <button class="theme-btn" type="button" data-theme-choice="noon" aria-pressed="false" aria-label="切换到溪山午荫，正午">
+      <span class="theme-btn__dot" aria-hidden="true"></span>午荫
+    </button>
+    <button class="theme-btn" type="button" data-theme-choice="dusk" aria-pressed="false" aria-label="切换到溪山暮烟，黄昏">
+      <span class="theme-btn__dot" aria-hidden="true"></span>暮烟
+    </button>
+    <button class="theme-btn" type="button" data-theme-choice="night" aria-pressed="false" aria-label="切换到溪山夜月，夜晚">
+      <span class="theme-btn__dot" aria-hidden="true"></span>夜月
+    </button>
+  </div>
+
+  <main id="main" class="wrap-wide">
+    <div class="demo-layout">
+      <article class="article">
+        <header class="article__head">
+          <p class="kicker">山色 · 示例长文</p>
+          <h1 class="article__title">山静日长</h1>
+          <p class="article__meta">
+            <span>文 / 山色</span>
+            <span>约 1,100 字</span>
+            <span>6 分钟</span>
+            <span>2026 · 秋</span>
+          </p>
+        </header>
+
+        <div class="article__body prose">
+          <p class="lead">山里的时间不是钟表给的，是光给的。天光从纸背透出来，先染亮窗边的桌面，再慢慢移到书页上。读一页，光就挪一寸。</p>
+
+          <h2 id="light">光从纸上开始</h2>
+          <p>清晨的纸不是白的。它更像一张放久了的宣纸，微暖的米色里带一点雾的冷。字也不是黑的，是墨的，边缘略软；读久了，眼睛不会觉得纸在发亮，反而像纸自己在吸光。</p>
+          <p>到了正午，纸变亮，阴影变短，句子的轮廓跟着清楚起来。这时候的对比不必拉到最大。真正舒服的阅读，不是黑字狠狠压在白纸上，而是墨与纸彼此留一点余地。</p>
+
+          <blockquote>
+            <p>山形不动，光在移动。</p>
+            <cite>题记</cite>
+          </blockquote>
+
+          <h2 id="mountain">山形不动，光在移动</h2>
+          <p>四时主题共用的不是一张位图，而是一幅矢量构图：远山三层、溪流一条、松树七株、留白一片。晓雾、午荫、暮烟、夜月，改的只是天光、雾的厚薄、山脊的受光、松树的阴面和溪面的反光。</p>
+          <p>所以切换主题时不会有布局跳动，也不会换图。你看到的还是同一座山，只是光换了一个时辰。这种连续感比四张精心绘制的插画更难做，也更接近「一天」的真实经验。</p>
+
+          <h3>四个时辰，一种读法</h3>
+          <ul>
+            <li>晓雾：低对比、薄雾、微暖偏冷，适合一天开始时慢慢读。</li>
+            <li>午荫：高亮、树影短、阴影清楚，句子显得利落。</li>
+            <li>暮烟：暖赭、长影、低角度，适合在傍晚把一章收住。</li>
+            <li>夜月：深灰、低饱和、冷月微光，正文不是纯白，眼睛不必重新对焦。</li>
+          </ul>
+          <p>切换时只改 CSS 自定义属性：背景、墨色、强调色、边框、图片遮罩、雾感与受光。字体、栏宽、间距和组件位置一概不动。颜色过渡只发生在这几个属性上，时长 0.3 秒；系统开启「减少动态效果」时，过渡直接关闭。</p>
+
+          <h2 id="blank">留白与呼吸</h2>
+          <p>阅读栏宽 680 像素，正文 18 像素，行高 1.75。这个组合不算窄，也不算松，刚好让一行字停在眼睛不用来回找下一行的地方。手机上是 17 像素，左右各留 20 像素。</p>
+          <p>标题上面的空，比标题下面多。段落之间不再额外加线，只靠行距和段距分开。留白不是没内容，是让上一句有机会沉下去。</p>
+
+          <figure>
+            <div class="img-wrap">
+              <img src="assets/img/valley-light.svg" width="1200" height="720" alt="晴光下的山谷：天空明亮，远山重叠，一条溪流从谷底穿过，近处有松树。">
+            </div>
+            <figcaption>晴光下的山谷。图像之上只叠加一层极淡的 <code>--img-overlay</code>；夜里加深到 0.18，亮部不刺眼，细节仍然可辨。</figcaption>
+          </figure>
+
+          <p>颜色只出现在变量文件里。组件不写色值，所以切换主题时，没有哪个局部会忘记变。下面这段是主题变量的开头：</p>
+
+<pre><code>:root,
+[data-theme="dawn"] {
+  --bg: #f2efe7;
+  --text: #2b3538;
+  --accent: #2d6a66;
+  --theme-transition: 300ms;
+}
+
+[data-theme="night"] {
+  --bg: #1b2223;
+  --text: #d7ddd9;
+  --accent: #8cb9ae;
+}</code></pre>
+
+          <p>变量名是语义，不是颜色名。写组件的人只需要知道「这是纸」「这是墨」「这是强调」，不必知道它在四个时辰里分别是什么色值。设计系统真正的稳定，来自这层语义，而不是某一组好看的十六进制。</p>
+
+          <h2 id="night">夜晚的纸</h2>
+          <p>夜晚不用纯黑。背景是深灰，带一点山色的绿；正文是浅灰，不是纯白。对比度依然在 7:1 以上，但纸不再像一块发光的屏幕。台灯关掉以后，页面和房间的暗部能接上。</p>
+
+          <h3 id="stream">一段溪流的暗部</h3>
+          <p>夜里看山，先看见的不是山，是山脊上那一条更亮的光。画里的受光面因此比白天更窄、更冷，水面只剩一道细线。松树的阴面压得更深，但还没有深到失去轮廓。</p>
+          <p>这就是「夜月」与「把白天调暗」的区别。前者保留了月光的颜色和方向，后者只是把所有像素乘上一个系数。前者需要重新决定哪一面受光，后者不需要。</p>
+
+          <blockquote>
+            <p>好的夜间主题不是把白天翻过来，而是把灯调暗，让眼睛自己适应。</p>
+            <cite>设计笔记</cite>
+          </blockquote>
+
+          <p>所以这篇文章本身也是测试：读到这里，如果你还能不费力地分辨正文、引用、代码与图注，那么这套主题的对比与层级就大致成立。若觉得哪一处发灰，不妨切到另一个时辰，看看是光的问题，还是纸的问题。</p>
+
+          <p class="article__end">山色 / Hill Light · 示例长文完 · 约 1,100 字</p>
+        </div>
+      </article>
+
+      <nav class="toc" aria-label="本文目录">
+        <p class="toc__title">目录</p>
+        <ol>
+          <li><a href="#light">光从纸上开始</a></li>
+          <li><a href="#mountain">山形不动，光在移动</a></li>
+          <li><a href="#blank">留白与呼吸</a></li>
+          <li><a href="#night">夜晚的纸</a></li>
+          <li><a href="#stream">一段溪流的暗部</a></li>
+        </ol>
+      </nav>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap-wide site-footer__inner">
+      <p>纯静态页面 · 无外部字体 · 无追踪</p>
+      <p class="theme-state">此刻 · <strong data-theme-label>溪山晓雾</strong> · <span data-theme-source-label>按本地时间</span></p>
+      <p><a href="index.html">回到主旨</a> · 山色 / Hill Light · MIT</p>
+    </div>
+  </footer>
+
+  <script src="js/theme.js" defer></script>
+</body>
+</html>
