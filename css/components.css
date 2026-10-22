@@ -3,48 +3,6 @@
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   The same valley, four lights
-   -------------------------------------------------------------------------- */
-
-.hero__art {
-  margin: 0;
-}
-
-.valley {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1200 / 720;
-  background: var(--bg-elevated);
-  border: var(--rule-weight) solid var(--border);
-  filter: saturate(var(--art-saturation)) contrast(var(--art-contrast));
-  transition:
-    border-color var(--theme-transition) var(--ease),
-    background-color var(--theme-transition) var(--ease),
-    filter var(--theme-transition) var(--ease);
-}
-
-.valley * {
-  transition:
-    fill var(--theme-transition) var(--ease),
-    stroke var(--theme-transition) var(--ease),
-    stop-color var(--theme-transition) var(--ease),
-    opacity var(--theme-transition) var(--ease);
-}
-
-.art-caption {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 4px var(--space-3);
-  margin-top: 10px;
-  color: var(--text-faint);
-  font-family: var(--font-sans);
-  font-size: var(--text-micro);
-  letter-spacing: 0.05em;
-}
-
-/* --------------------------------------------------------------------------
    Buttons and text links
    -------------------------------------------------------------------------- */
 
@@ -143,6 +101,10 @@
   margin: var(--space-4) 0;
   overflow: hidden;
   background: transparent;
+}
+
+.img-wrap picture {
+  display: contents;
 }
 
 .img-wrap img {

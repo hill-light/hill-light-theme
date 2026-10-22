@@ -1,5 +1,5 @@
 /* ==========================================================================
-   山色 / Hill Light · four-season theme controller
+   山光 / Hill Light · four-season theme controller
    The inline script in <head> applies the first paint. This file takes over:
    buttons, storage, the 30-minute clock check, and the styleguide compare.
    ========================================================================== */
@@ -24,6 +24,7 @@
   var buttons = Array.prototype.slice.call(document.querySelectorAll("[data-theme-choice]"));
   var nameOutputs = Array.prototype.slice.call(document.querySelectorAll("[data-theme-label]"));
   var sourceOutputs = Array.prototype.slice.call(document.querySelectorAll("[data-theme-source-label]"));
+  var frames = Array.prototype.slice.call(document.querySelectorAll("[data-theme-frame]"));
   var status = document.getElementById("theme-status");
 
   function isTheme(value) {
@@ -72,6 +73,14 @@
 
     buttons.forEach(function (button) {
       button.setAttribute("aria-pressed", String(button.getAttribute("data-theme-choice") === theme));
+    });
+
+    /* All four exposures stay in the DOM; only the spoken one is exposed. */
+    frames.forEach(function (frame) {
+      frame.setAttribute(
+        "aria-hidden",
+        String(frame.getAttribute("data-theme-frame") !== theme)
+      );
     });
 
     if (nameOutputs.length) {
@@ -159,6 +168,52 @@
   window.addEventListener("pagehide", function () {
     window.clearInterval(timer);
   });
+
+  /* Landing: the duet slider clips the night exposure over the noon one. */
+  var duet = document.querySelector("[data-compare-slider]");
+  if (duet) {
+    var duetRange = duet.querySelector(".duet__range");
+    var duetLeftTag = duet.querySelector(".duet__tag--left");
+    var duetRightTag = duet.querySelector(".duet__tag--right");
+    var setCut = function (value) {
+      var cut = Math.max(0, Math.min(100, Number(value) || 0));
+      duet.style.setProperty("--cut", cut + "%");
+      if (duetLeftTag) duetLeftTag.style.opacity = cut < 6 ? "0" : "";
+      if (duetRightTag) duetRightTag.style.opacity = cut > 94 ? "0" : "";
+      if (duetRange) {
+        duetRange.setAttribute(
+          "aria-valuetext",
+          "夜月 " + cut + "%，午荫 " + (100 - cut) + "%"
+        );
+      }
+    };
+    if (duetRange) {
+      setCut(duetRange.value);
+      duetRange.addEventListener("input", function () {
+        setCut(duetRange.value);
+      });
+    }
+  }
+
+  /* Reading down the page, the fixed switcher would sit on the plates and the
+     duet. Tuck it away; scrolling back up (or tabbing into it) restores it. */
+  var switcher = document.querySelector(".theme-switcher");
+  if (switcher) {
+    var lastScroll = window.scrollY;
+    window.addEventListener("scroll", function () {
+      var y = window.scrollY;
+      if (y > 160 && y > lastScroll + 4) {
+        switcher.classList.add("is-away");
+      } else if (y < lastScroll - 4 || y < 160) {
+        switcher.classList.remove("is-away");
+      }
+      lastScroll = y;
+    }, { passive: true });
+
+    switcher.addEventListener("focusin", function () {
+      switcher.classList.remove("is-away");
+    });
+  }
 
   /* Styleguide: CSS-only split comparison of dawn and night. */
   var compareToggle = document.querySelector("[data-compare-toggle]");

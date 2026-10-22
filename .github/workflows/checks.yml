@@ -17,3 +17,5 @@ jobs:
           node-version: 22
       - name: Check contrast
         run: node scripts/check-contrast.mjs
+      - name: Check local references and image set
+        run: node scripts/check-site.mjs

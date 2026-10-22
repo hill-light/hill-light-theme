@@ -3,11 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>山色 / Hill Light · 一山四时，光落在纸上</title>
-  <meta name="description" content="山色 / Hill Light 是一套为中文长文准备的四时阅读主题：同一座山、同一份版面，随一天的光线从晓雾走到夜月。">
+  <title>山光 / Hill Light · 同一处溪谷，四时显影</title>
+  <meta name="description" content="山光 / Hill Light 是一套为中文长文准备的四时阅读主题：同一处溪谷、同一份版面，随一天的光线从晓雾走到夜月。">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#f2efe7">
+  <link rel="canonical" href="https://hill-light.github.io/hill-light-theme/">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/brand/icon-180.png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="山光 / Hill Light · 同一处溪谷，四时显影">
+  <meta property="og:description" content="同一处溪谷，同一份版面。四时不是四张插画，而是同一帧的四种显影。">
+  <meta property="og:url" content="https://hill-light.github.io/hill-light-theme/">
+  <meta property="og:image" content="https://hill-light.github.io/hill-light-theme/assets/img/brand/og-cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="暮色中的溪谷，远山、花丛与水面镀着一层暖光。">
+  <meta name="twitter:card" content="summary_large_image">
   <script>
     (function () {
       var root = document.documentElement;
@@ -51,15 +62,15 @@
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/pages.css">
 </head>
-<body>
+<body class="page-home">
   <a class="skip-link" href="#main">跳到主要内容</a>
   <p class="visually-hidden" id="theme-status" role="status" aria-live="polite"></p>
 
   <header class="site-header">
     <div class="wrap-wide site-header__inner">
-      <a class="brand" href="index.html" aria-label="山色 Hill Light 首页">
+      <a class="brand" href="index.html" aria-label="山光 Hill Light 首页">
         <span class="brand__seal" aria-hidden="true">山</span>
-        <span class="brand__name">山色</span>
+        <span class="brand__name">山光</span>
         <span class="brand__latin">Hill Light</span>
       </a>
       <nav class="site-nav" aria-label="主导航">
@@ -86,115 +97,293 @@
   </div>
 
   <main id="main" class="wrap-wide">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero__grid">
-        <div>
-          <p class="kicker">Hill Light · 四时阅读主题</p>
-          <h1 class="hero__title" id="hero-title">
-            <span class="hero__title-name">山色</span>
-            <span class="hero__title-line">一山四时，<em class="hero__title-accent">光落在纸上</em>。</span>
+    <section class="stage" aria-labelledby="hero-title">
+      <div class="stage__frames">
+        <picture class="light-frame stage__frame" data-theme-frame="dawn" aria-hidden="false">
+          <source srcset="assets/img/times/flower-dawn-800.avif 800w, assets/img/times/flower-dawn-1600.avif 1600w" sizes="100vw" type="image/avif">
+          <source srcset="assets/img/times/flower-dawn-800.webp 800w, assets/img/times/flower-dawn-1600.webp 1600w" sizes="100vw" type="image/webp">
+          <img src="assets/img/times/flower-dawn-1600.jpg" srcset="assets/img/times/flower-dawn-800.jpg 800w, assets/img/times/flower-dawn-1600.jpg 1600w" sizes="100vw" alt="清晨的溪谷：薄雾贴着水面，远山呈冷的青灰色，左侧花丛刚被照亮。" width="1600" height="900" fetchpriority="high" decoding="async" draggable="false">
+        </picture>
+        <picture class="light-frame stage__frame" data-theme-frame="noon" aria-hidden="true">
+          <source srcset="assets/img/times/flower-noon-800.avif 800w, assets/img/times/flower-noon-1600.avif 1600w" sizes="100vw" type="image/avif">
+          <source srcset="assets/img/times/flower-noon-800.webp 800w, assets/img/times/flower-noon-1600.webp 1600w" sizes="100vw" type="image/webp">
+          <img src="assets/img/times/flower-noon-1600.jpg" srcset="assets/img/times/flower-noon-800.jpg 800w, assets/img/times/flower-noon-1600.jpg 1600w" sizes="100vw" alt="正午的溪谷：阳光充足，水面明亮，远山与花丛的颜色最实。" width="1600" height="900" decoding="async" draggable="false">
+        </picture>
+        <picture class="light-frame stage__frame" data-theme-frame="dusk" aria-hidden="true">
+          <source srcset="assets/img/times/flower-dusk-800.avif 800w, assets/img/times/flower-dusk-1600.avif 1600w" sizes="100vw" type="image/avif">
+          <source srcset="assets/img/times/flower-dusk-800.webp 800w, assets/img/times/flower-dusk-1600.webp 1600w" sizes="100vw" type="image/webp">
+          <img src="assets/img/times/flower-dusk-1600.jpg" srcset="assets/img/times/flower-dusk-800.jpg 800w, assets/img/times/flower-dusk-1600.jpg 1600w" sizes="100vw" alt="黄昏的溪谷：低角度的金色光从左侧照来，山脊与花丛镶着暖边。" width="1600" height="900" decoding="async" draggable="false">
+        </picture>
+        <picture class="light-frame stage__frame" data-theme-frame="night" aria-hidden="true">
+          <source srcset="assets/img/times/flower-night-800.avif 800w, assets/img/times/flower-night-1600.avif 1600w" sizes="100vw" type="image/avif">
+          <source srcset="assets/img/times/flower-night-800.webp 800w, assets/img/times/flower-night-1600.webp 1600w" sizes="100vw" type="image/webp">
+          <img src="assets/img/times/flower-night-1600.jpg" srcset="assets/img/times/flower-night-800.jpg 800w, assets/img/times/flower-night-1600.jpg 1600w" sizes="100vw" alt="夜晚的溪谷：蓝调的暗部、压暗的天空与左上方一枚月亮，水面留下冷光。" width="1600" height="900" decoding="async" draggable="false">
+        </picture>
+      </div>
+      <div class="stage__scrim" aria-hidden="true"></div>
+
+      <div class="stage__inner wrap-wide">
+        <div class="stage__top">
+          <p class="stage__eyebrow">Hill Light · 四时阅读主题</p>
+          <p class="stage__place">同一处溪谷 · 16:9 · 四时</p>
+        </div>
+
+        <div class="stage__copy">
+          <h1 class="stage__title" id="hero-title">
+            <span class="stage__title-name">山光</span>
+            <span class="stage__title-line">一山四时，光落在纸上。</span>
           </h1>
-          <p class="hero__lede">「山色」是一套为中文长文准备的阅读主题：同一座山、同一份版面，随一天的光线从晓雾走到夜月。四时共用一套语义变量，切换只改纸、墨、雾与受光。</p>
-          <p class="hero__lede">它不靠换插画来制造情绪，而是让排版留在原地——栏宽、行距、节奏都不动，只有光在移动。</p>
-          <div class="hero__actions">
-            <a class="link-arrow" href="demo.html">读一篇长文 <span aria-hidden="true">→</span></a>
-            <a class="link-arrow link-arrow--muted" href="styleguide.html">查看设计规范 <span aria-hidden="true">→</span></a>
+          <p class="stage__lede">同一处溪谷，同一份版面。四时不是四张插画，而是同一帧的四种显影：光走完一圈，字仍留在原处。</p>
+          <div class="stage__actions">
+            <a class="stage__cta stage__cta--solid" href="demo.html">读一篇长文 <span aria-hidden="true">→</span></a>
+            <a class="stage__cta" href="styleguide.html">查看设计规范</a>
           </div>
         </div>
 
-        <figure class="hero__art">
-          <svg class="valley" viewBox="0 0 1200 720" role="img" aria-labelledby="valley-title valley-desc">
-            <title id="valley-title">溪山四时</title>
-            <desc id="valley-desc">同一幅山路、溪流与松树的矢量构图。天空、远山、雾、受光与溪面反光随四个时辰变化，其他形状不动。</desc>
-            <defs>
-              <linearGradient id="art-sky-grad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" style="stop-color: var(--sky-top)"></stop>
-                <stop offset="1" style="stop-color: var(--sky-bottom)"></stop>
-              </linearGradient>
-              <radialGradient id="art-glow-grad" cx="0.5" cy="0.5" r="0.5">
-                <stop offset="0" stop-opacity="0.55" style="stop-color: var(--light)"></stop>
-                <stop offset="1" stop-opacity="0" style="stop-color: var(--light)"></stop>
-              </radialGradient>
-              <linearGradient id="art-mist-grad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-opacity="0" style="stop-color: var(--mist)"></stop>
-                <stop offset="0.45" stop-opacity="0.95" style="stop-color: var(--mist)"></stop>
-                <stop offset="1" stop-opacity="0" style="stop-color: var(--mist)"></stop>
-              </linearGradient>
-              <linearGradient id="art-mist-fade" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0" stop-color="#ffffff" stop-opacity="0"></stop>
-                <stop offset="0.18" stop-color="#ffffff" stop-opacity="1"></stop>
-                <stop offset="0.82" stop-color="#ffffff" stop-opacity="1"></stop>
-                <stop offset="1" stop-color="#ffffff" stop-opacity="0"></stop>
-              </linearGradient>
-              <mask id="art-mist-mask" maskUnits="userSpaceOnUse" x="0" y="350" width="1200" height="190">
-                <rect x="0" y="350" width="1200" height="190" fill="url(#art-mist-fade)"></rect>
-              </mask>
-            </defs>
+        <div class="stage__rail">
+          <p class="stage__now"><span>此刻</span> <strong data-theme-label>溪山晓雾</strong> <span data-theme-source-label>按本地时间</span></p>
+          <div class="time-rail" role="group" aria-label="切换四时">
+            <button class="time-tab" type="button" data-theme-choice="dawn" aria-pressed="true" aria-label="切换到溪山晓雾，清晨 06:00–10:59">
+              <span class="time-tab__index">01</span>
+              <span class="time-tab__name">晓雾</span>
+              <span class="time-tab__span">06:00–11:00</span>
+            </button>
+            <button class="time-tab" type="button" data-theme-choice="noon" aria-pressed="false" aria-label="切换到溪山午荫，正午 11:00–16:59">
+              <span class="time-tab__index">02</span>
+              <span class="time-tab__name">午荫</span>
+              <span class="time-tab__span">11:00–17:00</span>
+            </button>
+            <button class="time-tab" type="button" data-theme-choice="dusk" aria-pressed="false" aria-label="切换到溪山暮烟，黄昏 17:00–19:59">
+              <span class="time-tab__index">03</span>
+              <span class="time-tab__name">暮烟</span>
+              <span class="time-tab__span">17:00–20:00</span>
+            </button>
+            <button class="time-tab" type="button" data-theme-choice="night" aria-pressed="false" aria-label="切换到溪山夜月，夜晚 20:00–05:59">
+              <span class="time-tab__index">04</span>
+              <span class="time-tab__name">夜月</span>
+              <span class="time-tab__span">20:00–06:00</span>
+            </button>
+          </div>
+          <noscript>
+            <p class="stage__noscript">无脚本预览：<a href="demo.html?theme=dawn&amp;preview=1">晓雾</a> · <a href="demo.html?theme=noon&amp;preview=1">午荫</a> · <a href="demo.html?theme=dusk&amp;preview=1">暮烟</a> · <a href="demo.html?theme=night&amp;preview=1">夜月</a></p>
+          </noscript>
+        </div>
+      </div>
+    </section>
 
-            <rect width="1200" height="720" style="fill: url(#art-sky-grad)"></rect>
-            <circle cx="872" cy="204" r="168" style="fill: url(#art-glow-grad)"></circle>
-            <circle cx="872" cy="204" r="50" style="fill: var(--light)"></circle>
+    <div class="stage-caption">
+      <p>同一处溪谷 · 四时图 800 / 1600 · AVIF / WebP / JPG</p>
+      <p><a class="link-arrow" href="#recipe">看显影配方 <span aria-hidden="true">→</span></a></p>
+    </div>
 
-            <path d="M0 352 L112 262 L212 322 L302 232 L394 316 L470 268 L562 336 L660 270 L760 340 L852 300 L952 352 L1042 300 L1132 350 L1200 330 L1200 470 L0 470 Z"
-                  style="fill: var(--mountain-far); opacity: 0.62"></path>
-            <path d="M0 444 L92 352 L202 410 L312 300 L432 404 L522 336 L642 420 L752 330 L872 414 L982 352 L1092 430 L1200 402 L1200 552 L0 552 Z"
-                  style="fill: var(--mountain-mid); opacity: 0.9"></path>
-            <path d="M312 300 L432 404 L386 404 L332 348 Z" style="fill: var(--ridge-highlight); opacity: var(--ridge-opacity)"></path>
-            <path d="M752 330 L872 414 L820 414 L772 372 Z" style="fill: var(--ridge-highlight); opacity: var(--ridge-opacity)"></path>
-            <path d="M112 262 L212 322 L168 322 L128 288 Z" style="fill: var(--ridge-highlight); opacity: calc(var(--ridge-opacity) * 0.7)"></path>
+    <section class="section exposures" aria-labelledby="exposures-title">
+      <div class="section__head">
+        <p class="kicker">01 · 四次显影</p>
+        <h2 id="exposures-title">同一处溪谷，光换四次。</h2>
+        <p>四张图来自同一张 21:9 母图的 16:9 取景、同一张参数表。山形不动，水面不动，只有曝光、色温、雾与月色在变。点开任意一张，去那束光里读一篇长文。</p>
+      </div>
 
-            <rect x="0" y="350" width="1200" height="190" mask="url(#art-mist-mask)" style="fill: url(#art-mist-grad); opacity: var(--haze-opacity)"></rect>
-            <path d="M0 560 C120 498 240 494 360 528 C480 562 560 518 680 524 C800 530 884 578 1004 568 C1092 560 1152 526 1200 534 L1200 720 L0 720 Z"
-                  style="fill: var(--mountain-near); opacity: 0.94"></path>
+      <ol class="plate-list">
+        <li>
+          <a class="plate" href="demo.html?theme=dawn&amp;preview=1" data-theme-link="dawn">
+            <span class="plate__media">
+              <picture>
+                <source srcset="assets/img/times/flower-dawn-800.avif 800w, assets/img/times/flower-dawn-1600.avif 1600w" sizes="(max-width: 720px) 100vw, 46vw" type="image/avif">
+                <source srcset="assets/img/times/flower-dawn-800.webp 800w, assets/img/times/flower-dawn-1600.webp 1600w" sizes="(max-width: 720px) 100vw, 46vw" type="image/webp">
+                <img src="assets/img/times/flower-dawn-1600.jpg" srcset="assets/img/times/flower-dawn-800.jpg 800w, assets/img/times/flower-dawn-1600.jpg 1600w" sizes="(max-width: 720px) 100vw, 46vw" alt="同一处溪谷的晓雾" width="1600" height="900" loading="lazy" decoding="async" draggable="false">
+              </picture>
+              <span class="plate__badge">此刻</span>
+            </span>
+            <span class="plate__body">
+              <span class="plate__meta"><span>01</span><span>06:00–11:00</span></span>
+              <span class="plate__name">溪山晓雾</span>
+              <span class="plate__note">雾从水面升起，远山退成青灰。曝光压到 0.90，色温向蓝偏，留下一天里最轻的对比。</span>
+              <span class="plate__params">曝光 ×0.90 · 雾 0.25 · 蓝调 0.10</span>
+              <span class="plate__action">去这束光里读长文 <span aria-hidden="true">→</span></span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a class="plate" href="demo.html?theme=noon&amp;preview=1" data-theme-link="noon">
+            <span class="plate__media">
+              <picture>
+                <source srcset="assets/img/times/flower-noon-800.avif 800w, assets/img/times/flower-noon-1600.avif 1600w" sizes="(max-width: 720px) 100vw, 46vw" type="image/avif">
+                <source srcset="assets/img/times/flower-noon-800.webp 800w, assets/img/times/flower-noon-1600.webp 1600w" sizes="(max-width: 720px) 100vw, 46vw" type="image/webp">
+                <img src="assets/img/times/flower-noon-1600.jpg" srcset="assets/img/times/flower-noon-800.jpg 800w, assets/img/times/flower-noon-1600.jpg 1600w" sizes="(max-width: 720px) 100vw, 46vw" alt="同一处溪谷的午荫" width="1600" height="900" loading="lazy" decoding="async" draggable="false">
+              </picture>
+              <span class="plate__badge">此刻</span>
+            </span>
+            <span class="plate__body">
+              <span class="plate__meta"><span>02</span><span>11:00–17:00</span></span>
+              <span class="plate__name">溪山午荫</span>
+              <span class="plate__note">太阳升高，颜色回到最实的一档。反差 1.08、饱和 1.10，叶脉与水面都清楚。</span>
+              <span class="plate__params">曝光 ×1.06 · 对比 1.08 · 清晰度 0.16</span>
+              <span class="plate__action">去这束光里读长文 <span aria-hidden="true">→</span></span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a class="plate" href="demo.html?theme=dusk&amp;preview=1" data-theme-link="dusk">
+            <span class="plate__media">
+              <picture>
+                <source srcset="assets/img/times/flower-dusk-800.avif 800w, assets/img/times/flower-dusk-1600.avif 1600w" sizes="(max-width: 720px) 100vw, 46vw" type="image/avif">
+                <source srcset="assets/img/times/flower-dusk-800.webp 800w, assets/img/times/flower-dusk-1600.webp 1600w" sizes="(max-width: 720px) 100vw, 46vw" type="image/webp">
+                <img src="assets/img/times/flower-dusk-1600.jpg" srcset="assets/img/times/flower-dusk-800.jpg 800w, assets/img/times/flower-dusk-1600.jpg 1600w" sizes="(max-width: 720px) 100vw, 46vw" alt="同一处溪谷的暮烟" width="1600" height="900" loading="lazy" decoding="async" draggable="false">
+              </picture>
+              <span class="plate__badge">此刻</span>
+            </span>
+            <span class="plate__body">
+              <span class="plate__meta"><span>03</span><span>17:00–20:00</span></span>
+              <span class="plate__name">溪山暮烟</span>
+              <span class="plate__note">光低到山脊，暖色只擦过受光面。曝光 0.66，金色停在最后一层云上。</span>
+              <span class="plate__params">曝光 ×0.66 · 暖调 0.18 · 辉光 0.50</span>
+              <span class="plate__action">去这束光里读长文 <span aria-hidden="true">→</span></span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a class="plate" href="demo.html?theme=night&amp;preview=1" data-theme-link="night">
+            <span class="plate__media">
+              <picture>
+                <source srcset="assets/img/times/flower-night-800.avif 800w, assets/img/times/flower-night-1600.avif 1600w" sizes="(max-width: 720px) 100vw, 46vw" type="image/avif">
+                <source srcset="assets/img/times/flower-night-800.webp 800w, assets/img/times/flower-night-1600.webp 1600w" sizes="(max-width: 720px) 100vw, 46vw" type="image/webp">
+                <img src="assets/img/times/flower-night-1600.jpg" srcset="assets/img/times/flower-night-800.jpg 800w, assets/img/times/flower-night-1600.jpg 1600w" sizes="(max-width: 720px) 100vw, 46vw" alt="同一处溪谷的夜月" width="1600" height="900" loading="lazy" decoding="async" draggable="false">
+              </picture>
+              <span class="plate__badge">此刻</span>
+            </span>
+            <span class="plate__body">
+              <span class="plate__meta"><span>04</span><span>20:00–06:00</span></span>
+              <span class="plate__name">溪山夜月</span>
+              <span class="plate__note">去色、压暗，再补一枚月。蓝调分离把暗部拉出层次，夜不是一团黑。</span>
+              <span class="plate__params">曝光 ×0.30 · 蓝调 0.60 · 月 1.00</span>
+              <span class="plate__action">去这束光里读长文 <span aria-hidden="true">→</span></span>
+            </span>
+          </a>
+        </li>
+      </ol>
+    </section>
 
-            <path d="M586 720 C606 662 642 610 694 566 C736 530 780 520 828 526 L862 538 C812 562 780 606 760 660 C746 698 742 720 742 720 Z"
-                  style="fill: var(--water); opacity: 0.8"></path>
-            <path d="M700 720 C714 676 740 638 776 606" style="fill: none; stroke: var(--water-line); stroke-width: 3; opacity: var(--water-light-opacity)"></path>
-            <path d="M646 720 C664 680 690 650 722 624" style="fill: none; stroke: var(--water-line); stroke-width: 2; opacity: var(--water-light-opacity)"></path>
+    <section class="section duet" aria-labelledby="duet-title">
+      <div class="section__head">
+        <p class="kicker">02 · 并排</p>
+        <h2 id="duet-title">午荫与夜月，叠在同一帧上。</h2>
+        <p>左侧是夜月，右侧是午荫。拖动分界，看光怎样从水面退场；这不是两张不同的画，是同一帧的两次显影。</p>
+      </div>
 
-            <g style="fill: var(--tree)">
-              <path d="M150 690 L150 552" style="fill: none; stroke: var(--tree); stroke-width: 5; opacity: 0.85"></path>
-              <path transform="translate(150 470) scale(1.25)" d="M0 0 L-16 30 L-6 27 L-24 58 L-10 54 L-30 88 L30 88 L10 54 L24 58 L6 27 L16 30 Z"></path>
-              <path transform="translate(206 560) scale(0.8)" d="M0 0 L-16 30 L-6 27 L-24 58 L-10 54 L-30 88 L30 88 L10 54 L24 58 L6 27 L16 30 Z"></path>
-              <path transform="translate(1062 640) scale(1.4)" d="M0 0 L-16 30 L-6 27 L-24 58 L-10 54 L-30 88 L30 88 L10 54 L24 58 L6 27 L16 30 Z"></path>
-              <path transform="translate(1118 606) scale(0.9)" d="M0 0 L-16 30 L-6 27 L-24 58 L-10 54 L-30 88 L30 88 L10 54 L24 58 L6 27 L16 30 Z"></path>
-              <path transform="translate(432 600) scale(0.6)" d="M0 0 L-16 30 L-6 27 L-24 58 L-10 54 L-30 88 L30 88 L10 54 L24 58 L6 27 L16 30 Z"></path>
-            </g>
+      <figure class="duet__figure">
+        <div class="duet__frame" data-compare-slider style="--cut: 50%">
+          <picture class="duet__layer duet__layer--day">
+            <source srcset="assets/img/times/flower-noon-800.avif 800w, assets/img/times/flower-noon-1600.avif 1600w" sizes="(max-width: 900px) 100vw, 1080px" type="image/avif">
+            <source srcset="assets/img/times/flower-noon-800.webp 800w, assets/img/times/flower-noon-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 1080px" type="image/webp">
+            <img src="assets/img/times/flower-noon-1600.jpg" srcset="assets/img/times/flower-noon-800.jpg 800w, assets/img/times/flower-noon-1600.jpg 1600w" sizes="(max-width: 900px) 100vw, 1080px" alt="正午的溪谷，作为比较的右侧画面。" width="1600" height="900" loading="lazy" decoding="async" draggable="false">
+          </picture>
+          <picture class="duet__layer duet__layer--night">
+            <source srcset="assets/img/times/flower-night-800.avif 800w, assets/img/times/flower-night-1600.avif 1600w" sizes="(max-width: 900px) 100vw, 1080px" type="image/avif">
+            <source srcset="assets/img/times/flower-night-800.webp 800w, assets/img/times/flower-night-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 1080px" type="image/webp">
+            <img src="assets/img/times/flower-night-1600.jpg" srcset="assets/img/times/flower-night-800.jpg 800w, assets/img/times/flower-night-1600.jpg 1600w" sizes="(max-width: 900px) 100vw, 1080px" alt="夜月的溪谷，作为比较的左侧画面。" width="1600" height="900" loading="lazy" decoding="async" draggable="false">
+          </picture>
+          <span class="duet__tag duet__tag--left">夜月 · 20:00–06:00</span>
+          <span class="duet__tag duet__tag--right">午荫 · 11:00–17:00</span>
+          <span class="duet__handle" aria-hidden="true"></span>
+          <input class="duet__range" type="range" min="0" max="100" value="50" step="1" aria-label="比较夜月与午荫：向左收起夜月，向右展开夜月">
+        </div>
+        <figcaption class="duet__caption">
+          <span>拖动分界 · 键盘左右键微调</span>
+          <span>同一帧 · 两次显影</span>
+        </figcaption>
+      </figure>
+    </section>
 
-            <g style="fill: none; stroke: var(--text); stroke-width: 2; opacity: 0.4; stroke-linecap: round">
-              <path d="M322 244 q12 -9 24 0 q12 -9 24 0"></path>
-              <path d="M392 216 q10 -7 20 0 q10 -7 20 0"></path>
-            </g>
-          </svg>
-          <figcaption class="art-caption">
-            <span>同一构图 · 只换光</span>
-            <span><span data-theme-label>溪山晓雾</span> · <span data-theme-source-label>按本地时间</span></span>
+    <section class="section wallpaper" aria-labelledby="wallpaper-title">
+      <div class="section__head">
+        <p class="kicker">03 · 壁纸</p>
+        <h2 id="wallpaper-title">同一处溪谷，两种画幅。</h2>
+        <p>16:9 留在屏幕上，21:9 留给超宽屏。两张都从同一张母图取景，四时各自显影；下载是 1920×1080 与 2520×1080 的 JPG，不再压成缩略图。</p>
+      </div>
+
+      <div class="wallpaper-grid">
+        <figure class="wallpaper-card">
+          <div class="wallpaper-card__media">
+            <div class="wallpaper-card__frames">
+              <picture class="light-frame wallpaper-card__frame" data-theme-frame="dawn" aria-hidden="false">
+                <source srcset="assets/img/times/flower-dawn-800.avif 800w, assets/img/times/flower-dawn-1600.avif 1600w" sizes="(max-width: 900px) 100vw, 640px" type="image/avif">
+                <source srcset="assets/img/times/flower-dawn-800.webp 800w, assets/img/times/flower-dawn-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 640px" type="image/webp">
+                <img src="assets/img/times/flower-dawn-1600.jpg" srcset="assets/img/times/flower-dawn-800.jpg 800w, assets/img/times/flower-dawn-1600.jpg 1600w" sizes="(max-width: 900px) 100vw, 640px" alt="晓雾中的溪谷，16:9 屏幕壁纸预览。" width="1600" height="900" loading="lazy" decoding="async" draggable="false">
+              </picture>
+              <picture class="light-frame wallpaper-card__frame" data-theme-frame="noon" aria-hidden="true">
+                <source srcset="assets/img/times/flower-noon-800.avif 800w, assets/img/times/flower-noon-1600.avif 1600w" sizes="(max-width: 900px) 100vw, 640px" type="image/avif">
+                <source srcset="assets/img/times/flower-noon-800.webp 800w, assets/img/times/flower-noon-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 640px" type="image/webp">
+                <img src="assets/img/times/flower-noon-1600.jpg" srcset="assets/img/times/flower-noon-800.jpg 800w, assets/img/times/flower-noon-1600.jpg 1600w" sizes="(max-width: 900px) 100vw, 640px" alt="午荫中的溪谷，16:9 屏幕壁纸预览。" width="1600" height="900" loading="lazy" decoding="async" draggable="false">
+              </picture>
+              <picture class="light-frame wallpaper-card__frame" data-theme-frame="dusk" aria-hidden="true">
+                <source srcset="assets/img/times/flower-dusk-800.avif 800w, assets/img/times/flower-dusk-1600.avif 1600w" sizes="(max-width: 900px) 100vw, 640px" type="image/avif">
+                <source srcset="assets/img/times/flower-dusk-800.webp 800w, assets/img/times/flower-dusk-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 640px" type="image/webp">
+                <img src="assets/img/times/flower-dusk-1600.jpg" srcset="assets/img/times/flower-dusk-800.jpg 800w, assets/img/times/flower-dusk-1600.jpg 1600w" sizes="(max-width: 900px) 100vw, 640px" alt="暮烟中的溪谷，16:9 屏幕壁纸预览。" width="1600" height="900" loading="lazy" decoding="async" draggable="false">
+              </picture>
+              <picture class="light-frame wallpaper-card__frame" data-theme-frame="night" aria-hidden="true">
+                <source srcset="assets/img/times/flower-night-800.avif 800w, assets/img/times/flower-night-1600.avif 1600w" sizes="(max-width: 900px) 100vw, 640px" type="image/avif">
+                <source srcset="assets/img/times/flower-night-800.webp 800w, assets/img/times/flower-night-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 640px" type="image/webp">
+                <img src="assets/img/times/flower-night-1600.jpg" srcset="assets/img/times/flower-night-800.jpg 800w, assets/img/times/flower-night-1600.jpg 1600w" sizes="(max-width: 900px) 100vw, 640px" alt="夜月中的溪谷，16:9 屏幕壁纸预览。" width="1600" height="900" loading="lazy" decoding="async" draggable="false">
+              </picture>
+            </div>
+            <span class="wallpaper-card__ratio" aria-hidden="true">16:9</span>
+          </div>
+          <figcaption class="wallpaper-card__meta">
+            <span><strong>屏幕</strong> 1920×1080</span>
+            <span>JPG · 四时</span>
+          </figcaption>
+        </figure>
+
+        <figure class="wallpaper-card wallpaper-card--wide">
+          <div class="wallpaper-card__media">
+            <div class="wallpaper-card__frames">
+              <picture class="light-frame wallpaper-card__frame" data-theme-frame="dawn" aria-hidden="false">
+                <source srcset="assets/img/times/wide-dawn-840.avif 840w, assets/img/times/wide-dawn-1680.avif 1680w" sizes="(max-width: 900px) 100vw, 420px" type="image/avif">
+                <source srcset="assets/img/times/wide-dawn-840.webp 840w, assets/img/times/wide-dawn-1680.webp 1680w" sizes="(max-width: 900px) 100vw, 420px" type="image/webp">
+                <img src="assets/img/times/wide-dawn-1680.jpg" srcset="assets/img/times/wide-dawn-840.jpg 840w, assets/img/times/wide-dawn-1680.jpg 1680w" sizes="(max-width: 900px) 100vw, 420px" alt="晓雾中的溪谷，21:9 超宽壁纸预览。" width="1680" height="720" loading="lazy" decoding="async" draggable="false">
+              </picture>
+              <picture class="light-frame wallpaper-card__frame" data-theme-frame="noon" aria-hidden="true">
+                <source srcset="assets/img/times/wide-noon-840.avif 840w, assets/img/times/wide-noon-1680.avif 1680w" sizes="(max-width: 900px) 100vw, 420px" type="image/avif">
+                <source srcset="assets/img/times/wide-noon-840.webp 840w, assets/img/times/wide-noon-1680.webp 1680w" sizes="(max-width: 900px) 100vw, 420px" type="image/webp">
+                <img src="assets/img/times/wide-noon-1680.jpg" srcset="assets/img/times/wide-noon-840.jpg 840w, assets/img/times/wide-noon-1680.jpg 1680w" sizes="(max-width: 900px) 100vw, 420px" alt="午荫中的溪谷，21:9 超宽壁纸预览。" width="1680" height="720" loading="lazy" decoding="async" draggable="false">
+              </picture>
+              <picture class="light-frame wallpaper-card__frame" data-theme-frame="dusk" aria-hidden="true">
+                <source srcset="assets/img/times/wide-dusk-840.avif 840w, assets/img/times/wide-dusk-1680.avif 1680w" sizes="(max-width: 900px) 100vw, 420px" type="image/avif">
+                <source srcset="assets/img/times/wide-dusk-840.webp 840w, assets/img/times/wide-dusk-1680.webp 1680w" sizes="(max-width: 900px) 100vw, 420px" type="image/webp">
+                <img src="assets/img/times/wide-dusk-1680.jpg" srcset="assets/img/times/wide-dusk-840.jpg 840w, assets/img/times/wide-dusk-1680.jpg 1680w" sizes="(max-width: 900px) 100vw, 420px" alt="暮烟中的溪谷，21:9 超宽壁纸预览。" width="1680" height="720" loading="lazy" decoding="async" draggable="false">
+              </picture>
+              <picture class="light-frame wallpaper-card__frame" data-theme-frame="night" aria-hidden="true">
+                <source srcset="assets/img/times/wide-night-840.avif 840w, assets/img/times/wide-night-1680.avif 1680w" sizes="(max-width: 900px) 100vw, 420px" type="image/avif">
+                <source srcset="assets/img/times/wide-night-840.webp 840w, assets/img/times/wide-night-1680.webp 1680w" sizes="(max-width: 900px) 100vw, 420px" type="image/webp">
+                <img src="assets/img/times/wide-night-1680.jpg" srcset="assets/img/times/wide-night-840.jpg 840w, assets/img/times/wide-night-1680.jpg 1680w" sizes="(max-width: 900px) 100vw, 420px" alt="夜月中的溪谷，21:9 超宽壁纸预览。" width="1680" height="720" loading="lazy" decoding="async" draggable="false">
+              </picture>
+            </div>
+            <span class="wallpaper-card__ratio" aria-hidden="true">21:9</span>
+          </div>
+          <figcaption class="wallpaper-card__meta">
+            <span><strong>超宽屏</strong> 2520×1080</span>
+            <span>JPG · 四时</span>
           </figcaption>
         </figure>
       </div>
 
-      <nav class="season-links" aria-label="四时入口">
-        <a class="season-link" href="demo.html?theme=dawn&amp;preview=1" data-theme-link="dawn">
-          <span class="season-link__index">01 · 06:00–11:00</span>
-          <span class="season-link__name">溪山晓雾</span>
-          <span class="season-link__time">薄雾 · 微暖 · 低对比</span>
-        </a>
-        <a class="season-link" href="demo.html?theme=noon&amp;preview=1" data-theme-link="noon">
-          <span class="season-link__index">02 · 11:00–17:00</span>
-          <span class="season-link__name">溪山午荫</span>
-          <span class="season-link__time">高亮 · 短影 · 清楚</span>
-        </a>
-        <a class="season-link" href="demo.html?theme=dusk&amp;preview=1" data-theme-link="dusk">
-          <span class="season-link__index">03 · 17:00–20:00</span>
-          <span class="season-link__name">溪山暮烟</span>
-          <span class="season-link__time">暖赭 · 长影 · 低角度</span>
-        </a>
-        <a class="season-link" href="demo.html?theme=night&amp;preview=1" data-theme-link="night">
-          <span class="season-link__index">04 · 20:00–06:00</span>
-          <span class="season-link__name">溪山夜月</span>
-          <span class="season-link__time">深灰 · 冷月 · 低饱和</span>
-        </a>
-      </nav>
+      <div class="wallpaper-downloads">
+        <p class="wallpaper-downloads__label">下载 · 16:9 · 1920×1080</p>
+        <ul class="wallpaper-links">
+          <li><a href="assets/img/wallpapers/hill-light-dawn-16x9.jpg" download type="image/jpeg">晓雾</a></li>
+          <li><a href="assets/img/wallpapers/hill-light-noon-16x9.jpg" download type="image/jpeg">午荫</a></li>
+          <li><a href="assets/img/wallpapers/hill-light-dusk-16x9.jpg" download type="image/jpeg">暮烟</a></li>
+          <li><a href="assets/img/wallpapers/hill-light-night-16x9.jpg" download type="image/jpeg">夜月</a></li>
+        </ul>
+        <p class="wallpaper-downloads__label">下载 · 21:9 · 2520×1080</p>
+        <ul class="wallpaper-links">
+          <li><a href="assets/img/wallpapers/hill-light-dawn-21x9.jpg" download type="image/jpeg">晓雾</a></li>
+          <li><a href="assets/img/wallpapers/hill-light-noon-21x9.jpg" download type="image/jpeg">午荫</a></li>
+          <li><a href="assets/img/wallpapers/hill-light-dusk-21x9.jpg" download type="image/jpeg">暮烟</a></li>
+          <li><a href="assets/img/wallpapers/hill-light-night-21x9.jpg" download type="image/jpeg">夜月</a></li>
+        </ul>
+      </div>
+      <p class="wallpaper-note">源图 <code>flower.jpg</code> · 2416×1024 · 构建时取 2520×1080 母图，再取 16:9 与 21:9。当前主题：<strong data-theme-label>溪山晓雾</strong>。</p>
     </section>
 
     <section class="section principles" aria-labelledby="principles-title">
@@ -218,8 +407,8 @@
           <article class="principle">
             <p class="principle__index">03</p>
             <div>
-              <h3>光先于装饰</h3>
-              <p>同一幅矢量山水，只改天光、雾的厚薄、山脊的受光与溪面的反光。布局不动，图不换；情绪来自光，而不是来自新的插画。</p>
+              <h3>显影先于装饰</h3>
+              <p>同一张母图、16:9 与 21:9 两种取景，只换曝光、色温、雾的厚薄与夜里的月光。四时的图像层各自叠在固定位置交叉淡入，山形不动；情绪来自光，不来自新的插画。</p>
             </div>
           </article>
         </div>
@@ -256,13 +445,101 @@
       </div>
     </section>
 
+    <section class="section recipe" id="recipe" aria-labelledby="recipe-title">
+      <div class="section__head">
+        <p class="kicker">附 · 显影配方</p>
+        <h2 id="recipe-title">显影，不是滤镜。</h2>
+        <p>四时图在构建时生成，不在浏览器里跑滤镜。下面是 <a href="scripts/build-art.py">scripts/build-art.py</a> 里的参数；表与脚本一起维护。</p>
+      </div>
+
+      <div class="table-scroll" tabindex="0" role="region" aria-label="四时显影配方表">
+        <table class="token-table recipe-table">
+          <caption class="visually-hidden">四时显影参数，数值来自 scripts/build-art.py 的 GRADES 表</caption>
+          <thead>
+            <tr>
+              <th scope="col">时辰</th>
+              <th scope="col">线性曝光</th>
+              <th scope="col">白平衡 R / G / B</th>
+              <th scope="col">对比</th>
+              <th scope="col">饱和</th>
+              <th scope="col">雾</th>
+              <th scope="col">再补</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><code>dawn</code><span>溪山晓雾</span></th>
+              <td>×0.90</td>
+              <td>0.92 / 0.99 / 1.10</td>
+              <td>0.86</td>
+              <td>0.62</td>
+              <td>0.25</td>
+              <td>lift 0.060 · 蓝调 0.10 · 辉光 0.18</td>
+            </tr>
+            <tr>
+              <th scope="row"><code>noon</code><span>溪山午荫</span></th>
+              <td>×1.06</td>
+              <td>1.02 / 1.01 / 0.99</td>
+              <td>1.08</td>
+              <td>1.10</td>
+              <td>—</td>
+              <td>清晰度 0.16 · 辉光 0.10</td>
+            </tr>
+            <tr>
+              <th scope="row"><code>dusk</code><span>溪山暮烟</span></th>
+              <td>×0.66</td>
+              <td>1.20 / 0.97 / 0.70</td>
+              <td>1.08</td>
+              <td>1.00</td>
+              <td>0.22</td>
+              <td>辉光 0.50 · 蓝调 0.18 · 暗角 0.26</td>
+            </tr>
+            <tr>
+              <th scope="row"><code>night</code><span>溪山夜月</span></th>
+              <td>×0.30</td>
+              <td>0.78 / 0.94 / 1.22</td>
+              <td>1.10</td>
+              <td>0.50</td>
+              <td>0.10</td>
+              <td>蓝调 0.60 · 压暗天空 0.22 · 月 1.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="recipe-note">曝光是线性光下的倍率；白平衡是 R/G/B 增益；对比、饱和、雾均为 0–1 的显示参考值。页面切换只读取已显影的图，参数改动后重跑脚本。</p>
+    </section>
+
+    <section class="section org" aria-labelledby="org-title">
+      <div class="org__grid">
+        <div class="org__intro">
+          <p class="kicker">组织</p>
+          <h2 id="org-title">同一处溪谷，<br>也是组织的标记。</h2>
+          <p>Hill Light 维护这套四时主题与两份 Quarto 发布示例。组织标记取自同一幅溪谷：缩到 64 像素，仍能认出山脊、水面与花。</p>
+        </div>
+        <div class="org__panel">
+          <div class="org__identity">
+            <img class="org__avatar" src="assets/img/brand/org-avatar.png" alt="Hill Light 组织标记：绘有溪谷、远山与花的画面。" width="460" height="460" loading="lazy" decoding="async">
+            <div>
+              <p class="org__handle">hill-light</p>
+              <p class="org__tagline">四时阅读主题 · Quarto 发布示例</p>
+            </div>
+          </div>
+          <ul class="org__links">
+            <li><a href="https://github.com/hill-light/hill-light-theme"><strong>hill-light-theme</strong><span>主题仓库</span></a></li>
+            <li><a href="https://github.com/hill-light/hill-light-quarto-website"><strong>hill-light-quarto-website</strong><span>Quarto 网站</span></a></li>
+            <li><a href="https://github.com/hill-light/hill-light-quarto-book"><strong>hill-light-quarto-book</strong><span>Quarto Book</span></a></li>
+            <li><a href="https://github.com/hill-light/.github"><strong>.github</strong><span>组织资料</span></a></li>
+          </ul>
+          <p class="org__note">组织标记 · 460×460 · 从同一幅原画方裁，缩到 64 像素仍能认出山脊、水面与花。GitHub 上的头像需在 <a href="https://github.com/organizations/hill-light/settings/profile">Organization settings</a> 手工上传；仓库社交预览可用 <code>repo-social.jpg</code>。</p>
+        </div>
+      </div>
+    </section>
+
     <section class="section" aria-labelledby="use-title">
       <div class="section__head">
         <p class="kicker">放在你的站点里</p>
         <h2 id="use-title">无依赖，无构建</h2>
-        <p>三份 CSS、一份纯 JS、两张 SVG。没有外部字体，没有追踪，也不需要有。
-
-        </p>
+        <p>四份 CSS、一份纯 JS、三份 SVG，以及两种画幅的四时图（AVIF / WebP / JPG）与 8 张全尺寸壁纸 JPG。没有外部字体，没有追踪，也不需要有。</p>
       </div>
       <ol class="notes">
         <li>
@@ -275,13 +552,14 @@
         </li>
         <li>
           <h3>接进项目</h3>
-          <p>把 <code>css/</code>、<code>js/</code>、<code>assets/</code> 放进站点，在 <code>&lt;html data-theme&gt;</code> 上挂主题。组件只引用语义变量，无需改色值。</p>
+          <p>把 <code>css/</code>、<code>js/</code>、<code>assets/</code> 放进站点，在 <code>&lt;html data-theme&gt;</code> 上挂主题。四时图在 <code>assets/img/times/</code>，组件只引用语义变量。</p>
         </li>
         <li>
           <h3>先读规范</h3>
           <p><a href="styleguide.html">设计规范</a>里有四时色板、并排对比、组件标本与字号节奏，改主题前值得先看一遍。</p>
         </li>
       </ol>
+      <p class="note"><strong>图像怎么来的</strong> 四时图由 <code>scripts/build-art.py</code> 从一张母图生成：线性曝光、白平衡、分离色调、雾、辉光与月，全部写在 <code>GRADES</code> 表里；同一张母图再取 16:9 与 21:9 两种画幅。源图不入库；把图放在仓库根目录，或传给 <code>--flower</code>，重跑脚本即可更新页面图、壁纸、组织头像与社交封面。</p>
     </section>
   </main>
 
@@ -289,7 +567,7 @@
     <div class="wrap-wide site-footer__inner">
       <p>纯静态页面 · 无外部字体 · 无追踪</p>
       <p class="theme-state">此刻 · <strong data-theme-label>溪山晓雾</strong> · <span data-theme-source-label>按本地时间</span></p>
-      <p>山色 / Hill Light · MIT</p>
+      <p>山光 / <a href="https://github.com/hill-light">Hill Light</a> · MIT</p>
     </div>
   </footer>
 

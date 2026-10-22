@@ -259,11 +259,27 @@ pre {
   backdrop-filter: blur(8px);
   transition:
     background-color var(--theme-transition) var(--ease),
-    border-color var(--theme-transition) var(--ease);
+    border-color var(--theme-transition) var(--ease),
+    opacity var(--motion-fast) var(--ease),
+    transform var(--motion-fast) var(--ease);
 }
 
 .has-js .theme-switcher {
   display: flex;
+}
+
+/* Reading downwards: step out of the page. The in-stage rail is the control
+   at the top; scrolling back up, or focusing the switcher, brings it home. */
+.theme-switcher.is-away {
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+}
+
+.theme-switcher:focus-within {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
 }
 
 .theme-btn {
@@ -494,7 +510,7 @@ pre {
   }
 
   .theme-switcher {
-    position: absolute;
+    position: fixed;
     top: 10px;
     right: 10px;
   }
@@ -516,6 +532,10 @@ pre {
 
   main {
     padding-top: 46px;
+  }
+
+  body.page-home main {
+    padding-top: 0;
   }
 }
 

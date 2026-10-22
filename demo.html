@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>山静日长 · 山色 / Hill Light</title>
+  <title>山静日长 · 山光 / Hill Light</title>
   <meta name="description" content="一篇用来检验 Hill Light 阅读面、图片压暗与四时切换的示例长文：山静日长。">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#f2efe7">
@@ -57,9 +57,9 @@
 
   <header class="site-header">
     <div class="wrap-wide site-header__inner">
-      <a class="brand" href="index.html" aria-label="山色 Hill Light 首页">
+      <a class="brand" href="index.html" aria-label="山光 Hill Light 首页">
         <span class="brand__seal" aria-hidden="true">山</span>
-        <span class="brand__name">山色</span>
+        <span class="brand__name">山光</span>
         <span class="brand__latin">Hill Light</span>
       </a>
       <nav class="site-nav" aria-label="主导航">
@@ -89,10 +89,10 @@
     <div class="demo-layout">
       <article class="article">
         <header class="article__head">
-          <p class="kicker">山色 · 示例长文</p>
+          <p class="kicker">山光 · 示例长文</p>
           <h1 class="article__title">山静日长</h1>
           <p class="article__meta">
-            <span>文 / 山色</span>
+            <span>文 / 山光</span>
             <span>约 1,100 字</span>
             <span>6 分钟</span>
             <span>2026 · 秋</span>
@@ -112,25 +112,29 @@
           </blockquote>
 
           <h2 id="mountain">山形不动，光在移动</h2>
-          <p>四时主题共用的不是一张位图，而是一幅矢量构图：远山三层、溪流一条、松树七株、留白一片。晓雾、午荫、暮烟、夜月，改的只是天光、雾的厚薄、山脊的受光、松树的阴面和溪面的反光。</p>
-          <p>所以切换主题时不会有布局跳动，也不会换图。你看到的还是同一座山，只是光换了一个时辰。这种连续感比四张精心绘制的插画更难做，也更接近「一天」的真实经验。</p>
+          <p>四时主题共用的是同一张溪谷母图：同一个 16:9 取景、同一张参数表；站点的壁纸区另有 21:9 裁切。远山、水面、花丛的位置不动，晓雾、午荫、暮烟、夜月改的是曝光、色温、雾的厚薄、月光的补色与蓝调分离。</p>
+          <p>四张显影图叠在同一个位置，切换时只有当前时辰的一层可见。构图不跳，取景不换，你看到的还是同一处溪谷，只是光换了一个时辰。这种连续感比四张各自构图的插画更接近「一天」的真实经验。</p>
 
           <h3>四个时辰，一种读法</h3>
           <ul>
-            <li>晓雾：低对比、薄雾、微暖偏冷，适合一天开始时慢慢读。</li>
-            <li>午荫：高亮、树影短、阴影清楚，句子显得利落。</li>
-            <li>暮烟：暖赭、长影、低角度，适合在傍晚把一章收住。</li>
-            <li>夜月：深灰、低饱和、冷月微光，正文不是纯白，眼睛不必重新对焦。</li>
+            <li>晓雾：低对比、薄雾、偏冷，适合一天开始时慢慢读。</li>
+            <li>午荫：高亮、树影短、饱和度高，句子显得利落。</li>
+            <li>暮烟：暖赭、低角度、长影，适合在傍晚把一章收住。</li>
+            <li>夜月：蓝调、低饱和、月光补在受光面，正文不是纯白，眼睛不必重新对焦。</li>
           </ul>
-          <p>切换时只改 CSS 自定义属性：背景、墨色、强调色、边框、图片遮罩、雾感与受光。字体、栏宽、间距和组件位置一概不动。颜色过渡只发生在这几个属性上，时长 0.3 秒；系统开启「减少动态效果」时，过渡直接关闭。</p>
+          <p>切换时改的是语义变量，以及各处图像层谁可见：背景、墨色、强调色、边框、图片遮罩都来自 <code>--bg</code>、<code>--text</code> 等变量；图像层只做透明的交叉。字体、栏宽、间距和组件位置一概不动。颜色过渡 0.3 秒，图像淡入 0.7 秒；系统开启「减少动态效果」时都关闭。</p>
 
           <h2 id="blank">留白与呼吸</h2>
           <p>阅读栏宽 680 像素，正文 18 像素，行高 1.75。这个组合不算窄，也不算松，刚好让一行字停在眼睛不用来回找下一行的地方。手机上是 17 像素，左右各留 20 像素。</p>
           <p>标题上面的空，比标题下面多。段落之间不再额外加线，只靠行距和段距分开。留白不是没内容，是让上一句有机会沉下去。</p>
 
           <figure class="img-wrap">
-            <img src="assets/img/valley-light.svg" width="1200" height="720" alt="晴光下的山谷：天空明亮，远山重叠，一条溪流从谷底穿过，近处有松树。">
-            <figcaption>晴光下的山谷。图像之上只叠加一层极淡的 <code>--img-overlay</code>；夜里加深到 0.18，亮部不刺眼，细节仍然可辨。</figcaption>
+            <picture>
+              <source srcset="assets/img/times/flower-dusk-800.avif 800w, assets/img/times/flower-dusk-1600.avif 1600w" sizes="(max-width: 900px) 100vw, 680px" type="image/avif">
+              <source srcset="assets/img/times/flower-dusk-800.webp 800w, assets/img/times/flower-dusk-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 680px" type="image/webp">
+              <img src="assets/img/times/flower-dusk-1600.jpg" srcset="assets/img/times/flower-dusk-800.jpg 800w, assets/img/times/flower-dusk-1600.jpg 1600w" sizes="(max-width: 900px) 100vw, 680px" width="1600" height="900" loading="lazy" decoding="async" alt="暮烟中的溪谷：暖光低低扫过山脊，水面与花丛镀上一层金色。">
+            </picture>
+            <figcaption>暮烟中的溪谷。图像之上只叠加一层极淡的 <code>--img-overlay</code>；夜里加深到 0.18，亮部不刺眼，细节仍然可辨。</figcaption>
           </figure>
 
           <p>颜色只出现在变量文件里。组件不写色值，所以切换主题时，没有哪个局部会忘记变。下面这段是主题变量的开头：</p>
@@ -152,7 +156,7 @@
           <p>变量名是语义，不是颜色名。写组件的人只需要知道「这是纸」「这是墨」「这是强调」，不必知道它在四个时辰里分别是什么色值。设计系统真正的稳定，来自这层语义，而不是某一组好看的十六进制。</p>
 
           <h2 id="night">夜晚的纸</h2>
-          <p>夜晚不用纯黑。背景是深灰，带一点山色的绿；正文是浅灰，不是纯白。对比度依然在 7:1 以上，但纸不再像一块发光的屏幕。台灯关掉以后，页面和房间的暗部能接上。</p>
+          <p>夜晚不用纯黑。背景是深灰，带一点远山的绿；正文是浅灰，不是纯白。对比度依然在 7:1 以上，但纸不再像一块发光的屏幕。台灯关掉以后，页面和房间的暗部能接上。</p>
 
           <h3 id="stream">一段溪流的暗部</h3>
           <p>夜里看山，先看见的不是山，是山脊上那一条更亮的光。画里的受光面因此比白天更窄、更冷，水面只剩一道细线。松树的阴面压得更深，但还没有深到失去轮廓。</p>
@@ -165,7 +169,7 @@
 
           <p>所以这篇文章本身也是测试：读到这里，如果你还能不费力地分辨正文、引用、代码与图注，那么这套主题的对比与层级就大致成立。若觉得哪一处发灰，不妨切到另一个时辰，看看是光的问题，还是纸的问题。</p>
 
-          <p class="article__end">山色 / Hill Light · 示例长文完 · 约 1,100 字</p>
+          <p class="article__end">山光 / Hill Light · 示例长文完 · 约 1,100 字</p>
         </div>
       </article>
 
@@ -186,7 +190,7 @@
     <div class="wrap-wide site-footer__inner">
       <p>纯静态页面 · 无外部字体 · 无追踪</p>
       <p class="theme-state">此刻 · <strong data-theme-label>溪山晓雾</strong> · <span data-theme-source-label>按本地时间</span></p>
-      <p><a href="index.html">回到主旨</a> · 山色 / Hill Light · MIT</p>
+      <p><a href="index.html">回到主旨</a> · 山光 / Hill Light · MIT</p>
     </div>
   </footer>
 

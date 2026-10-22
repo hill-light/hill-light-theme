@@ -1,5 +1,5 @@
 /* ==========================================================================
-   山色 / Hill Light · semantic tokens
+   山光 / Hill Light · semantic tokens
    Dawn is the default (works without JS). Themes override only the light:
    color, contrast, haze, shadow. Geometry, type and spacing stay constant.
    ========================================================================== */
@@ -62,6 +62,14 @@
   --reed: #6f837b;
   --art-saturation: 0.92;
   --art-contrast: 0.94;
+
+  /* Artwork stage: a fixed dark plate in every theme, never the paper */
+  --stage-bg: #101716;
+  --stage-ink: #f5efe2;
+  --stage-ink-muted: rgba(245, 239, 226, 0.74);
+  --stage-ink-faint: rgba(245, 239, 226, 0.52);
+  --stage-line: rgba(245, 239, 226, 0.22);
+  --stage-accent: #e7c98f;
 
   /* Motion */
   --theme-transition: 300ms;
