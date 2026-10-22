@@ -16,15 +16,20 @@
       var theme = "dawn";
       var source = "auto";
       try {
-        var param = new URLSearchParams(window.location.search).get("theme");
+        var params = new URLSearchParams(window.location.search);
+        var param = params.get("theme");
+        var preview = params.get("preview") === "1";
         var saved = window.localStorage.getItem("hill-light-theme");
         var hour = new Date().getHours();
         var byHour = hour >= 6 && hour < 11 ? "dawn"
           : hour >= 11 && hour < 17 ? "noon"
           : hour >= 17 && hour < 20 ? "dusk" : "night";
-        // ?theme= is a one-page preview: it wins for this document but is
-        // never persisted. The saved choice remains the default everywhere else.
-        if (themes.indexOf(param) > -1) {
+        // ?theme= is a one-page preview. With preview=1 it wins even for
+        // readers who saved a choice; otherwise the saved choice stays default.
+        if (themes.indexOf(saved) > -1 && !preview) {
+          theme = saved;
+          source = "manual";
+        } else if (themes.indexOf(param) > -1) {
           theme = param;
           source = "preview";
         } else if (themes.indexOf(saved) > -1) {
@@ -169,22 +174,22 @@
       </div>
 
       <nav class="season-links" aria-label="四时入口">
-        <a class="season-link" href="demo.html?theme=dawn" data-theme-link="dawn">
+        <a class="season-link" href="demo.html?theme=dawn&amp;preview=1" data-theme-link="dawn">
           <span class="season-link__index">01 · 06:00–11:00</span>
           <span class="season-link__name">溪山晓雾</span>
           <span class="season-link__time">薄雾 · 微暖 · 低对比</span>
         </a>
-        <a class="season-link" href="demo.html?theme=noon" data-theme-link="noon">
+        <a class="season-link" href="demo.html?theme=noon&amp;preview=1" data-theme-link="noon">
           <span class="season-link__index">02 · 11:00–17:00</span>
           <span class="season-link__name">溪山午荫</span>
           <span class="season-link__time">高亮 · 短影 · 清楚</span>
         </a>
-        <a class="season-link" href="demo.html?theme=dusk" data-theme-link="dusk">
+        <a class="season-link" href="demo.html?theme=dusk&amp;preview=1" data-theme-link="dusk">
           <span class="season-link__index">03 · 17:00–20:00</span>
           <span class="season-link__name">溪山暮烟</span>
           <span class="season-link__time">暖赭 · 长影 · 低角度</span>
         </a>
-        <a class="season-link" href="demo.html?theme=night" data-theme-link="night">
+        <a class="season-link" href="demo.html?theme=night&amp;preview=1" data-theme-link="night">
           <span class="season-link__index">04 · 20:00–06:00</span>
           <span class="season-link__name">溪山夜月</span>
           <span class="season-link__time">深灰 · 冷月 · 低饱和</span>
@@ -266,7 +271,7 @@
         </li>
         <li>
           <h3>记住一个时辰</h3>
-          <p>首次按本地时间落在晓雾、午荫、暮烟或夜月；手动切换后存在本机。收藏 <code>?theme=night</code> 可固定预览。</p>
+          <p>首次按本地时间落在晓雾、午荫、暮烟或夜月；手动切换后存在本机。收藏 <code>?theme=night&amp;preview=1</code> 可强制预览。</p>
         </li>
         <li>
           <h3>接进项目</h3>

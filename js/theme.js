@@ -105,8 +105,16 @@
     if (!window.history || !window.history.replaceState) return;
     try {
       var url = new URL(window.location.href);
-      if (!url.searchParams.has("theme")) return;
-      url.searchParams.delete("theme");
+      var changed = false;
+      if (url.searchParams.has("theme")) {
+        url.searchParams.delete("theme");
+        changed = true;
+      }
+      if (url.searchParams.has("preview")) {
+        url.searchParams.delete("preview");
+        changed = true;
+      }
+      if (!changed) return;
       window.history.replaceState(null, "", url.pathname + url.search + url.hash);
     } catch (error) {
       /* keep the URL; the click still applies */
