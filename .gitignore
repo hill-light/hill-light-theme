@@ -1,0 +1,9 @@
+.tmp/
+node_modules/
+_site/
+_book/
+.quarto/
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log

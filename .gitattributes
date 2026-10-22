@@ -1,2 +1,10 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# 文本文件统一 LF，二进制资源不做转换
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.gif binary
+*.woff binary
+*.woff2 binary
