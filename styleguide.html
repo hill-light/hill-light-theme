@@ -11,6 +11,7 @@
   <script>
     (function () {
       var root = document.documentElement;
+      root.classList.add("has-js");
       var themes = ["dawn", "noon", "dusk", "night"];
       var theme = "dawn";
       var source = "auto";
@@ -64,7 +65,7 @@
     </div>
   </header>
 
-  <div class="theme-switcher" role="group" aria-label="阅读主题">
+  <div class="theme-switcher" data-theme-switcher role="group" aria-label="阅读主题">
     <button class="theme-btn" type="button" data-theme-choice="dawn" aria-pressed="true" aria-label="切换到溪山晓雾，清晨">
       <span class="theme-btn__dot" aria-hidden="true"></span>晓雾
     </button>
@@ -93,7 +94,7 @@
         <p>最亮与最暗的两个时辰并排。左右两栏的结构、字号、行距完全相同，只有变量不同。</p>
       </div>
       <div class="compare-bar">
-        <button class="btn" type="button" id="compare-toggle" data-compare-toggle aria-pressed="false">并排对比 · 晓雾 / 夜月</button>
+        <button class="btn" type="button" id="compare-toggle" data-compare-toggle aria-pressed="false" aria-controls="compare">并排对比 · 晓雾 / 夜月</button>
         <span class="compare-bar__hint">用于检查语义变量在极端时辰下是否仍然成立。纯 CSS 两栏，不复制页面。</span>
       </div>
       <div class="compare" id="compare" hidden>
@@ -196,6 +197,7 @@
       <div class="section__head">
         <h2 id="components-title">四套主题下的组件</h2>
         <p>同一份标记，四种光。检查标题、链接、引用、代码、按钮与焦点环是否都跟着变量走。</p>
+        <p class="component-map">正文 <code>--text</code> · 标题 <code>--text</code> · 链接 <code>--accent</code> / <code>--accent-hover</code> · 引用 <code>--bg-elevated</code> + <code>--accent</code> · 代码 <code>--bg-subtle</code> + <code>--font-mono</code> · 按钮 <code>--border</code> / <code>--accent</code> · 焦点 <code>--focus-ring</code></p>
       </div>
       <div class="specimen-grid">
         <article class="specimen" data-theme="dawn">

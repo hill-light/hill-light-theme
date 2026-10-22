@@ -65,6 +65,7 @@
 
   /* Motion */
   --theme-transition: 300ms;
+  --motion-fast: 160ms;
   --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
   /* Constant geometry / rhythm (identical in every theme) */
@@ -248,5 +249,13 @@
 @media (prefers-reduced-motion: reduce) {
   :root {
     --theme-transition: 0ms;
+    --motion-fast: 0ms;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
   }
 }

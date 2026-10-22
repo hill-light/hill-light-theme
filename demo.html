@@ -11,6 +11,7 @@
   <script>
     (function () {
       var root = document.documentElement;
+      root.classList.add("has-js");
       var themes = ["dawn", "noon", "dusk", "night"];
       var theme = "dawn";
       var source = "auto";
@@ -64,7 +65,7 @@
     </div>
   </header>
 
-  <div class="theme-switcher" role="group" aria-label="阅读主题">
+  <div class="theme-switcher" data-theme-switcher role="group" aria-label="阅读主题">
     <button class="theme-btn" type="button" data-theme-choice="dawn" aria-pressed="true" aria-label="切换到溪山晓雾，清晨">
       <span class="theme-btn__dot" aria-hidden="true"></span>晓雾
     </button>
@@ -122,10 +123,8 @@
           <p>阅读栏宽 680 像素，正文 18 像素，行高 1.75。这个组合不算窄，也不算松，刚好让一行字停在眼睛不用来回找下一行的地方。手机上是 17 像素，左右各留 20 像素。</p>
           <p>标题上面的空，比标题下面多。段落之间不再额外加线，只靠行距和段距分开。留白不是没内容，是让上一句有机会沉下去。</p>
 
-          <figure>
-            <div class="img-wrap">
-              <img src="assets/img/valley-light.svg" width="1200" height="720" alt="晴光下的山谷：天空明亮，远山重叠，一条溪流从谷底穿过，近处有松树。">
-            </div>
+          <figure class="img-wrap">
+            <img src="assets/img/valley-light.svg" width="1200" height="720" alt="晴光下的山谷：天空明亮，远山重叠，一条溪流从谷底穿过，近处有松树。">
             <figcaption>晴光下的山谷。图像之上只叠加一层极淡的 <code>--img-overlay</code>；夜里加深到 0.18，亮部不刺眼，细节仍然可辨。</figcaption>
           </figure>
 

@@ -205,8 +205,8 @@
 - 标签页重新可见时再检查一次。
 - 其他标签页修改 localStorage 时，通过 `storage` 事件同步。
 - 切换不刷新页面，不重建 DOM，只改根节点属性。
-- `prefers-reduced-motion: reduce` 时把 `--theme-transition` 设为 0ms。
-- 关闭 JavaScript 时页面保持 `data-theme="dawn"`，所有内容可读；主题按钮不可用，但不影响阅读。
+- `prefers-reduced-motion: reduce` 时把 `--theme-transition` 设为 0ms，并关闭所有过渡与动画。
+- 关闭 JavaScript 时页面保持 `data-theme="dawn"`，所有内容可读；主题按钮与并排对比自动隐藏，不影响阅读。
 
 ### 7.4 状态文本
 

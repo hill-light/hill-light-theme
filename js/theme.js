@@ -163,7 +163,12 @@
       compareToggle.textContent = next ? "收起并排对比" : "并排对比 · 晓雾 / 夜月";
       compare.hidden = !next;
       if (next) {
-        compare.scrollIntoView({ block: "nearest", behavior: "smooth" });
+        var reduceMotion = window.matchMedia &&
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        compare.scrollIntoView({
+          block: "nearest",
+          behavior: reduceMotion ? "auto" : "smooth"
+        });
       }
     });
   }

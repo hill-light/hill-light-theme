@@ -247,7 +247,7 @@ pre {
   top: 14px;
   right: var(--gutter);
   z-index: 40;
-  display: flex;
+  display: none;
   align-items: center;
   gap: 2px;
   padding: 4px;
@@ -260,6 +260,10 @@ pre {
   transition:
     background-color var(--theme-transition) var(--ease),
     border-color var(--theme-transition) var(--ease);
+}
+
+.has-js .theme-switcher {
+  display: flex;
 }
 
 .theme-btn {
@@ -294,7 +298,7 @@ pre {
 
 .theme-btn:hover {
   color: var(--text);
-  border-color: var(--border);
+  border-color: var(--accent);
 }
 
 .theme-btn[aria-pressed="true"] {

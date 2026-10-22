@@ -11,6 +11,7 @@
   <script>
     (function () {
       var root = document.documentElement;
+      root.classList.add("has-js");
       var themes = ["dawn", "noon", "dusk", "night"];
       var theme = "dawn";
       var source = "auto";
@@ -64,7 +65,7 @@
     </div>
   </header>
 
-  <div class="theme-switcher" role="group" aria-label="阅读主题">
+  <div class="theme-switcher" data-theme-switcher role="group" aria-label="阅读主题">
     <button class="theme-btn" type="button" data-theme-choice="dawn" aria-pressed="true" aria-label="切换到溪山晓雾，清晨">
       <span class="theme-btn__dot" aria-hidden="true"></span>晓雾
     </button>

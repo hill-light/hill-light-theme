@@ -138,25 +138,31 @@
    -------------------------------------------------------------------------- */
 
 .img-wrap {
-  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
   margin: var(--space-4) 0;
   overflow: hidden;
   background: var(--bg-subtle);
 }
 
 .img-wrap img {
+  grid-area: 1 / 1;
   width: 100%;
   height: auto;
 }
 
 .img-wrap::after {
   content: "";
-  position: absolute;
-  inset: 0;
+  grid-area: 1 / 1;
+  z-index: 1;
   background: var(--img-overlay);
   opacity: var(--img-overlay-opacity);
   pointer-events: none;
   transition: opacity var(--theme-transition) var(--ease);
+}
+
+.img-wrap figcaption {
+  grid-row: 2;
 }
 
 /* --------------------------------------------------------------------------
