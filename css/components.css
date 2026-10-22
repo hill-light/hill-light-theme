@@ -142,13 +142,14 @@
   grid-template-columns: minmax(0, 1fr);
   margin: var(--space-4) 0;
   overflow: hidden;
-  background: var(--bg-subtle);
+  background: transparent;
 }
 
 .img-wrap img {
   grid-area: 1 / 1;
   width: 100%;
   height: auto;
+  background: var(--bg-subtle);
 }
 
 .img-wrap::after {
