@@ -305,11 +305,18 @@ pre {
 }
 
 .theme-btn__dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: currentColor;
-  opacity: 0.55;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 12px;
+  height: 12px;
+  opacity: 0.7;
+}
+
+.theme-btn__dot svg {
+  display: block;
+  width: 12px;
+  height: 12px;
 }
 
 .theme-btn:hover {
